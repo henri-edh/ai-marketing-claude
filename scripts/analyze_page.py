@@ -22,7 +22,7 @@ class ImprovedMarketingParser(HTMLParser):
     """
     Robust HTML parser that correctly handles:
     - Title tags (only from <head>, not SVG or other contexts)
-    - Headings with nested content
+    - Headings with nested content and section context (nav/header/footer/main)
     - Multiple structured data formats (JSON-LD, Microdata, RDFa)
     """
 
@@ -77,6 +77,11 @@ class ImprovedMarketingParser(HTMLParser):
         self._in_svg = False
         self._depth_in_svg = 0
 
+        # Section context tracking (nav/header/footer/main/aside)
+        self._section_context = "main"
+        self._section_stack = []
+        self._headings_with_context = []
+
         # Microdata state
         self._itemscope_stack = []
         self._current_item = None
@@ -110,6 +115,11 @@ class ImprovedMarketingParser(HTMLParser):
         elif tag == "body":
             self._in_body = True
             self._in_head = False
+
+        # Track semantic section context (nav, header, footer, main, aside)
+        if tag in ("nav", "header", "footer", "main", "aside"):
+            self._section_stack.append(self._section_context)
+            self._section_context = tag
 
         # Handle <title> tag - ONLY in <head>
         if tag == "title" and self._in_head:
@@ -200,6 +210,13 @@ class ImprovedMarketingParser(HTMLParser):
         elif tag == "body":
             self._in_body = False
 
+        # Pop semantic section context
+        if tag in ("nav", "header", "footer", "main", "aside"):
+            if self._section_stack:
+                self._section_context = self._section_stack.pop()
+            else:
+                self._section_context = "main"
+
         # Handle title end
         if tag == "title" and self._in_title:
             self._in_title = False
@@ -209,6 +226,11 @@ class ImprovedMarketingParser(HTMLParser):
             text = "".join(self._heading_text_parts).strip()
             if text:  # Only add non-empty headings
                 self.headings[tag].append(text)
+                self._headings_with_context.append({
+                    "tag": tag,
+                    "text": text,
+                    "context": self._section_context
+                })
             self._in_heading = False
             self._in_heading_tag = None
             self._heading_text_parts = []
@@ -522,6 +544,9 @@ class ImprovedMarketingParser(HTMLParser):
         full_text = self.get_full_text()
         word_count = len(full_text.split())
 
+        # Collect all link hrefs for URL verification
+        link_hrefs = [link.get("href", "") for link in self.links if link.get("href")]
+
         return {
             "seo": {
                 "title": self.title.strip(),
@@ -537,6 +562,7 @@ class ImprovedMarketingParser(HTMLParser):
                 "twitter_tags": self.twitter_tags,
                 "hreflang_tags": self._hreflang_tags,
                 "headings": {k: v for k, v in self.headings.items() if v},
+                "headings_with_context": self._headings_with_context,
                 "heading_issues": heading_issues,
                 "h1_count": len(self.headings["h1"]),
                 "h1_text": self.headings["h1"][:3],  # First 3 H1s
@@ -544,6 +570,7 @@ class ImprovedMarketingParser(HTMLParser):
                 "images_without_alt": images_without_alt,
                 "images_with_lazy_loading": images_with_lazy
             },
+            "links_found": link_hrefs,
             "content": {
                 "word_count": word_count,
                 "headings_count": sum(len(v) for v in self.headings.values()),

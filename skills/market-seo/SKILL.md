@@ -12,7 +12,7 @@ Perform a comprehensive SEO audit of a webpage or website, covering on-page SEO,
 
 ## How to Execute
 
-### ⚠️ Important: Verify Automated Analysis Results
+### Important: Verify Automated Analysis Results
 
 Automated SEO analysis tools have limitations and can produce **false positives**. Always verify findings before including them in your audit:
 
@@ -42,11 +42,12 @@ This script extracts:
 - **Title tag** (from `<head>` section only, ignoring SVG title elements)
 - **Meta description** and keywords
 - **Open Graph** and **Twitter Card** tags
-- **Heading hierarchy** (H1-H6) with actual text content
+- **Heading hierarchy** (H1-H6) with section context (nav/header/footer/main/aside) via `headings_with_context`
+- **All link URLs found on the page** (`links_found` array)
 - **Links** (internal and external) with anchor text
 - **Images** with alt text status and lazy loading detection
 - **Forms** and **CTAs** (buttons and links)
-- **Structured data**: JSON-LD schemas with type detection
+- **Structured data**: JSON-LD schemas with type detection (raw HTML only — JS-injected schema will not appear)
 - **Social links** (Twitter, Facebook, LinkedIn, Instagram, etc.)
 - **Tracking scripts** (Google Analytics, GTM, Meta Pixel, etc.)
 - **Viewport** meta tag (mobile-friendliness indicator)
@@ -55,9 +56,7 @@ This script extracts:
 - **Redirect analysis** (www vs non-www, redirect chain)
 - **URL analysis** (HTTPS status, www status)
 
-**Important**: Always verify the automated findings manually. The script provides baseline data but cannot replace human judgment.
-
-Capture the JSON output and use it as the foundation for the manual analysis.
+Capture the JSON output and use it as the foundation for the manual analysis. The script output is the SINGLE SOURCE OF TRUTH for what exists on the page. Do not contradict it with assumptions.
 
 ### Step 2: On-Page SEO Checklist
 Evaluate each element and score it as Pass, Needs Work, or Fail.
@@ -121,7 +120,7 @@ Evaluate each element and score it as Pass, Needs Work, or Fail.
 | Deep linking | Links go to specific pages, not just homepage | Pass/Needs Work/Fail |
 | Relevant context | Links are contextually relevant to surrounding content | Pass/Needs Work/Fail |
 | Reasonable count | 3-10 internal links per 1,000 words of content | Pass/Needs Work/Fail |
-| Broken links | No broken internal links (404s) | Pass/Fail |
+| Broken links | No broken internal links (404s) — ONLY report links found in the `links_found` script output, NEVER guess URLs | Pass/Fail |
 
 #### URL Structure
 | Criteria | Best Practice | Check |
@@ -328,9 +327,10 @@ Check for structured data implementation:
 
 **Implementation guidance:**
 - Use JSON-LD format (Google's preferred format)
-- Validate with Google's Rich Results Test
+- Validate with Google's Rich Results Test (https://search.google.com/test/rich-results)
 - Don't mark up content that isn't visible on the page
 - Keep schema data consistent with on-page content
+- IMPORTANT: Many platforms (Shopify, WordPress, etc.) inject JSON-LD via JavaScript at runtime. The analyze_page.py script only parses raw HTML and may miss JS-injected schema. Always caveat schema findings with: "Verify via Google's Rich Results Test, as JS-injected structured data is not visible to static HTML analysis."
 
 ### Step 9: Internal Linking Opportunities
 
@@ -508,3 +508,47 @@ Generate a file called `SEO-AUDIT.md` with:
 - **Never claim a page returns 404 without testing it**. Use tools like curl or try accessing the URL directly in a browser before reporting it as broken.
 - **For structured data, recommend Google's Rich Results Test** as the definitive source. The automated script may miss schemas implemented via JavaScript or in formats other than JSON-LD.
 - **Be cautious about navigation/header element analysis**. Footer labels using H2 for visual styling is common and not necessarily an SEO issue if they're not used for content structure.
+
+## ACCURACY GUARDRAILS — MANDATORY
+
+These rules prevent false positives that undermine report credibility. Follow them strictly.
+
+### 1. Only report what the data shows — NEVER fabricate or assume
+- **NEVER invent URLs** that you assume should exist. Only report 404s or broken links for URLs that appear in the script output `links_found` array or in navigation/sitemap data you actually fetched. If you haven't verified a URL exists in the source, don't claim it returns 404.
+- **NEVER guess page content** you haven't seen. If the script didn't fetch a page (e.g., /pages/about), don't claim it's missing or returns 404 unless you actually fetched it and got an error.
+- If you're uncertain whether something exists, say "could not verify" rather than "missing" or "404."
+
+### 2. Trust the script data over your assumptions
+- The script output is ground truth for what exists in the HTML. If the script reports an H1 exists, it exists. If the script reports structured data was found, it exists. Do not override script findings with your own assumptions.
+- If the script reports `robots_meta` contains "noindex", note that this MAY come from embedded content (iframes, third-party widgets) and recommend verification rather than declaring it a catastrophic error.
+
+### 3. Structured data: account for client-side rendering
+- Many modern sites (especially Shopify) inject JSON-LD structured data via JavaScript at runtime. The script only parses raw HTML, so it may miss JS-injected schema.
+- When the script reports zero structured data, state: "No structured data found in raw HTML source. Note: If the site uses JavaScript-injected schema (common on Shopify), structured data may exist but not be visible to static HTML parsing. Verify using Google's Rich Results Test."
+- NEVER claim "zero structured data" as a definitive finding without this caveat.
+
+### 4. Canonical and redirect verification
+- Do not claim www vs non-www inconsistency unless you have actually fetched both variants and observed different behavior. The script fetches one URL — it cannot determine redirect behavior.
+- If the canonical tag points to a non-www URL, state the observation and recommend verifying redirect configuration, but do NOT claim it as a confirmed issue.
+
+### 5. Heading context matters
+- The script output includes `headings_with_context` showing whether each heading is in `nav`, `header`, `footer`, `main`, or `aside`.
+- Headings inside `footer` or `nav` that serve as section labels (e.g., "Company", "Help and Info") should NOT be flagged as SEO issues. These are UI labels, not content headings.
+- Only flag heading hierarchy issues for headings in `main` content areas.
+- When noting H2s used as footer/nav labels, frame it as an observation ("Footer section labels use H2 tags"), not as an SEO deficiency requiring action.
+
+### 6. Distinguish "scraper limitation" from "site problem"
+- If a finding might be a scraper limitation (e.g., content loaded by JavaScript, data inside iframes, dynamically rendered elements), explicitly note this possibility.
+- Use language like "Not detected in static HTML (may be JS-rendered)" rather than "Missing."
+- Many Shopify themes render content, reviews, and schema via JavaScript — always caveat findings that could be affected by this.
+
+### 7. Blog author bylines and design choices
+- If blog posts lack visible author bylines, note it as an observation but acknowledge this may be a deliberate design/content decision. Not all sites benefit from author attribution (e.g., brand-authored content).
+- Frame as: "No visible author bylines on blog posts. If this is a deliberate choice, consider whether adding named authors could strengthen E-E-A-T signals." Do NOT frame as a definitive SEO failure.
+
+### 8. Confidence levels on recommendations
+- Mark each finding with a confidence indicator:
+  - **Confirmed** — directly observed in script data or fetched content
+  - **Likely** — strong indicators but not directly verifiable from static HTML
+  - **Needs Verification** — could be a scraper limitation; manual check required
+- All items in the "Critical (Fix Immediately)" section MUST be **Confirmed** findings only. Never escalate **Needs Verification** items to Critical priority.

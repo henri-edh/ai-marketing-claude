@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "WebFetch(domain:www.flightscope.com)",
+      "mcp__claude_ai_Firecrawl_MCP_Server__firecrawl_scrape"
+    ]
+  }
+}
