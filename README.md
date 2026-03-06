@@ -48,10 +48,22 @@ cd ai-marketing-claude
 ./install.sh
 ```
 
+### What Gets Installed
+
+- **UV** (Python package manager) — automatically installed if not present
+- **Python 3.13** virtual environment — managed by UV
+- **All 15 marketing skills** — installed to `~/.claude/skills/market/`
+- **5 parallel analysis agents** — installed to `~/.claude/agents/`
+- **4 Python utility scripts** — for automated analysis
+- **6 marketing templates** — email sequences, proposals, calendars
+
 ### Optional: PDF Report Support
 
+The installer will attempt to install `reportlab` automatically. To enable PDF reports manually:
+
 ```bash
-pip install reportlab
+# After installation, use the UV Python environment
+uv pip install reportlab --python ~/.claude/skills/market/.venv/bin/python
 ```
 
 ---
@@ -73,7 +85,7 @@ pip install reportlab
 | `/market proposal <client>` | Client proposal generator |
 | `/market report <url>` | Full marketing report (Markdown) |
 | `/market report-pdf <url>` | Professional marketing report (PDF) |
-| `/market seo <url>` | SEO content audit |
+| `/market seo <url>` | SEO content audit with improved accuracy |
 | `/market brand <url>` | Brand voice analysis and guidelines |
 
 ---
@@ -97,7 +109,7 @@ ai-marketing-claude/
 │   ├── market-proposal/SKILL.md        # Client proposal generator
 │   ├── market-report/SKILL.md          # Marketing report (Markdown)
 │   ├── market-report-pdf/SKILL.md      # Marketing report (PDF)
-│   ├── market-seo/SKILL.md             # SEO content audit
+│   ├── market-seo/SKILL.md             # SEO content audit (improved accuracy)
 │   └── market-brand/SKILL.md           # Brand voice analysis
 │
 ├── agents/                             # 5 parallel subagents
@@ -108,7 +120,7 @@ ai-marketing-claude/
 │   └── market-strategy.md              # Brand, pricing & growth strategy
 │
 ├── scripts/                            # Python utility scripts
-│   ├── analyze_page.py                 # Webpage marketing analysis
+│   ├── analyze_page.py                 # Webpage marketing analysis (improved parser)
 │   ├── competitor_scanner.py           # Competitor website scanner
 │   ├── social_calendar.py              # Social content calendar generator
 │   └── generate_pdf_report.py          # PDF report generator
@@ -121,9 +133,11 @@ ai-marketing-claude/
 │   ├── content-calendar.md             # 30-day content calendar
 │   └── launch-checklist.md             # Launch checklist
 │
-├── install.sh                          # One-command installer
+├── install.sh                          # One-command installer (UV-enabled)
 ├── uninstall.sh                        # Clean uninstaller
 ├── requirements.txt                    # Python dependencies
+├── pyproject.toml                      # Python project configuration
+├── .python-version                     # Python version specification
 └── LICENSE                             # MIT License
 ```
 
@@ -151,9 +165,19 @@ The full marketing audit scores websites across 6 dimensions:
 1. **You type a command** — e.g., `/market audit https://example.com`
 2. **Claude reads the skill files** — they tell Claude exactly how to analyze the site
 3. **5 subagents launch in parallel** — each one analyzes a different dimension
-4. **Python scripts run** — automated page analysis, competitor scanning
+4. **Python scripts run** — automated page analysis with accurate HTML parsing
 5. **Results are compiled** — into a scored, prioritized, actionable report
 6. **Output is saved** — as a Markdown file or professional PDF
+
+### Improved SEO Analysis
+
+The SEO analysis script now includes:
+
+- **Accurate title tag extraction** — only from `<head>`, ignoring SVG elements
+- **Proper heading detection** — handles nested content correctly
+- **Multiple structured data formats** — JSON-LD, Microdata, and RDFa detection
+- **Redirect analysis** — tracks www vs non-www, redirect chains
+- **Verification warnings** — reminds you to verify findings manually
 
 ---
 
@@ -173,6 +197,22 @@ The full marketing audit scores websites across 6 dimensions:
 - Research competitors with `/market competitors`
 - Plan launches with `/market launch`
 - Analyze your funnel with `/market funnel`
+
+---
+
+## Python Environment
+
+This project uses **UV** for fast, reliable Python package management:
+
+- Virtual environment: `~/.claude/skills/market/.venv`
+- Python helper script: `~/.claude/skills/market/python-env.sh`
+- All Python scripts run through the UV-managed environment
+
+To run Python scripts manually:
+
+```bash
+~/.claude/skills/market/python-env.sh scripts/analyze_page.py <url>
+```
 
 ---
 

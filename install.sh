@@ -37,6 +37,7 @@ fi
 # Target directories
 SKILLS_DIR="$HOME/.claude/skills"
 AGENTS_DIR="$HOME/.claude/agents"
+VENV_DIR="$SKILLS_DIR/market/.venv"
 
 echo -e "${BLUE}Source:${NC}  $SCRIPT_DIR"
 echo -e "${BLUE}Target:${NC} $SKILLS_DIR"
@@ -162,28 +163,89 @@ if [ -d "$SCRIPT_DIR/templates" ]; then
     done
 fi
 
-# Install Python dependencies
-echo -e "\n${BLUE}Checking Python dependencies...${NC}"
-if command -v python3 &>/dev/null; then
-    PYTHON_VERSION=$(python3 -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')" 2>/dev/null)
-    echo -e "  ${GREEN}✓${NC} Python $PYTHON_VERSION detected"
+# Install Python dependencies with UV
+echo -e "\n${BLUE}Setting up Python environment with UV...${NC}"
 
-    # Check for reportlab (needed for PDF reports)
-    if python3 -c "import reportlab" 2>/dev/null; then
+# Check for UV
+if ! command -v uv &>/dev/null; then
+    echo -e "${YELLOW}⚠${NC} UV not found. Installing UV..."
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    if [ $? -ne 0 ]; then
+        echo -e "${RED}Failed to install UV. Please install manually: https://github.com/astral-sh/uv${NC}"
+        echo -e "${YELLOW}Falling back to system Python...${NC}"
+        UV_AVAILABLE=false
+    else
+        UV_AVAILABLE=true
+        echo -e "  ${GREEN}✓${NC} UV installed"
+    fi
+else
+    UV_AVAILABLE=true
+    UV_VERSION=$(uv --version 2>/dev/null)
+    echo -e "  ${GREEN}✓${NC} UV $UV_VERSION detected"
+fi
+
+# Set up Python environment
+if [ "$UV_AVAILABLE" = true ]; then
+    # Create virtual environment with UV
+    echo -e "${BLUE}Creating Python virtual environment...${NC}"
+    if [ -f "$SCRIPT_DIR/.python-version" ]; then
+        PYTHON_VERSION=$(cat "$SCRIPT_DIR/.python-version")
+        uv venv --python "$PYTHON_VERSION" "$VENV_DIR" 2>/dev/null || uv venv "$VENV_DIR"
+    else
+        uv venv "$VENV_DIR"
+    fi
+    echo -e "  ${GREEN}✓${NC} Virtual environment created at $VENV_DIR"
+
+    # Install dependencies with UV
+    echo -e "${BLUE}Installing Python dependencies...${NC}"
+    if [ -f "$SCRIPT_DIR/requirements.txt" ]; then
+        UV_PYTHON="$VENV_DIR/bin/python"
+        "$VENV_DIR/bin/uv" pip install -r "$SCRIPT_DIR/requirements.txt" --python "$UV_PYTHON" 2>/dev/null || true
+        echo -e "  ${GREEN}✓${NC} Dependencies installed with UV"
+    fi
+
+    # Check for reportlab
+    if "$VENV_DIR/bin/python" -c "import reportlab" 2>/dev/null; then
         echo -e "  ${GREEN}✓${NC} reportlab installed (PDF reports ready)"
     else
         echo -e "  ${YELLOW}⚠${NC} reportlab not installed (needed for PDF reports)"
-        echo -e "    Install with: ${CYAN}pip install reportlab${NC}"
-    fi
-
-    # Check for requests (optional, scripts use urllib as fallback)
-    if python3 -c "import requests" 2>/dev/null; then
-        echo -e "  ${GREEN}✓${NC} requests installed"
+        echo -e "    Install with: ${CYAN}uv pip install reportlab --python $VENV_DIR/bin/python${NC}"
     fi
 else
-    echo -e "  ${YELLOW}⚠${NC} Python 3 not found — scripts won't work"
-    echo -e "    Install Python: ${CYAN}https://python.org${NC}"
+    echo -e "  ${YELLOW}⚠${NC} UV not available — scripts will use system Python"
+    if command -v python3 &>/dev/null; then
+        PYTHON_VERSION=$(python3 -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')" 2>/dev/null)
+        echo -e "  ${GREEN}✓${NC} Python $PYTHON_VERSION detected (system)"
+    else
+        echo -e "  ${RED}✗${NC} Python 3 not found — scripts won't work"
+        echo -e "    Install Python: ${CYAN}https://python.org${NC}"
+    fi
 fi
+
+# Create Python helper script for UV environment
+echo -e "\n${BLUE}Creating Python helper script...${NC}"
+cat > "$SKILLS_DIR/market/python-env.sh" << 'ENVEOF'
+#!/bin/bash
+# Python environment helper for AI Marketing Suite
+# This script ensures Python scripts run with the correct UV-managed virtual environment
+
+MARKET_SKILLS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+VENV_DIR="$MARKET_SKILLS_DIR/.venv"
+
+# Use UV venv if available, otherwise fall back to system Python
+if [ -f "$VENV_DIR/bin/python" ]; then
+    exec "$VENV_DIR/bin/python" "$@"
+elif command -v uv &>/dev/null && [ -f "$VENV_DIR/bin/python" ]; then
+    exec uv run --python "$VENV_DIR/bin/python" "$@"
+elif command -v python3 &>/dev/null; then
+    exec python3 "$@"
+else
+    echo "Error: No Python environment found" >&2
+    exit 1
+fi
+ENVEOF
+chmod +x "$SKILLS_DIR/market/python-env.sh"
+echo -e "  ${GREEN}✓${NC} Python helper script created"
 
 # Cleanup temp directory if used
 if [ -n "$TEMP_DIR" ] && [ -d "$TEMP_DIR" ]; then
@@ -200,6 +262,11 @@ echo -e "  Skills installed:    ${GREEN}$SKILL_COUNT${NC}"
 echo -e "  Agents installed:    ${GREEN}$AGENT_COUNT${NC}"
 echo -e "  Scripts installed:   ${GREEN}$SCRIPT_COUNT${NC}"
 echo -e "  Templates installed: ${GREEN}$TEMPLATE_COUNT${NC}"
+if [ "$UV_AVAILABLE" = true ]; then
+    echo -e "  Python environment:  ${GREEN}UV (managed)${NC}"
+else
+    echo -e "  Python environment:  ${YELLOW}System Python${NC}"
+fi
 echo ""
 echo -e "${CYAN}Available Commands:${NC}"
 echo "  /market audit <url>        Full marketing audit (5 parallel agents)"

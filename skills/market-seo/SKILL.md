@@ -12,26 +12,50 @@ Perform a comprehensive SEO audit of a webpage or website, covering on-page SEO,
 
 ## How to Execute
 
+### ⚠️ Important: Verify Automated Analysis Results
+
+Automated SEO analysis tools have limitations and can produce **false positives**. Always verify findings before including them in your audit:
+
+**Common issues to verify:**
+- **Title tags**: Ensure the script extracted the actual `<title>` tag from `<head>`, not an SVG `<title>` element
+- **Headings**: Verify H1/H2/H3 counts by viewing page source
+- **Structured data**: The script only detects JSON-LD in `<script type="application/ld+json">` tags. Use Google's Rich Results Test to verify: https://search.google.com/test/rich-results
+- **Canonical tags**: Verify canonical consistency manually - check both the canonical tag AND how the site actually loads (www vs non-www)
+- **404 errors**: Before claiming a page doesn't exist, try accessing it directly in a browser
+- **Redirects**: The script may not follow JavaScript redirects or client-side routing
+
+**Verification workflow:**
+1. Run the automated script to get baseline data
+2. **Manually verify** critical findings (title, headings, structured data, canonicals)
+3. Cross-reference with browser DevTools and "View Source"
+4. Use Google's tools (Rich Results Test, PageSpeed Insights) for validation
+5. Only include verified findings in your final report
+
 ### Step 1: Run Automated Analysis
 Use the Python analysis script to gather baseline data:
 
 ```bash
-python3 scripts/analyze_page.py <url>
+~/.claude/skills/market/python-env.sh scripts/analyze_page.py <url>
 ```
 
 This script extracts:
-- Title tag and meta description
-- Open Graph tags
-- Heading hierarchy (H1-H6)
-- Links (internal and external)
-- Images and alt text status
-- Forms and CTAs
-- Schema/structured data
-- Social links
-- Tracking scripts
-- Viewport meta tag (mobile-friendliness indicator)
-- Canonical tag
-- Robots meta directives
+- **Title tag** (from `<head>` section only, ignoring SVG title elements)
+- **Meta description** and keywords
+- **Open Graph** and **Twitter Card** tags
+- **Heading hierarchy** (H1-H6) with actual text content
+- **Links** (internal and external) with anchor text
+- **Images** with alt text status and lazy loading detection
+- **Forms** and **CTAs** (buttons and links)
+- **Structured data**: JSON-LD schemas with type detection
+- **Social links** (Twitter, Facebook, LinkedIn, Instagram, etc.)
+- **Tracking scripts** (Google Analytics, GTM, Meta Pixel, etc.)
+- **Viewport** meta tag (mobile-friendliness indicator)
+- **Canonical** tag and **hreflang** tags
+- **Robots** meta directives
+- **Redirect analysis** (www vs non-www, redirect chain)
+- **URL analysis** (HTTPS status, www status)
+
+**Important**: Always verify the automated findings manually. The script provides baseline data but cannot replace human judgment.
 
 Capture the JSON output and use it as the foundation for the manual analysis.
 
@@ -478,5 +502,9 @@ Generate a file called `SEO-AUDIT.md` with:
 - Always provide the "before" (current state) and "after" (recommended change) so the client can see exactly what needs to change.
 - Tie SEO improvements to business outcomes. "Optimizing your title tag" means nothing to a business owner. "Optimizing your title tag could increase your click-through rate by 20-35%, bringing an estimated 500 more visitors per month to this page" is actionable.
 - Use the automated script data as a starting point, but add expert analysis on top. The script finds the data; the skill interprets what it means.
+- **Verify critical findings before including them**. Automated tools can produce false positives. Check title tags, headings, and structured data manually using "View Source" or browser DevTools.
 - Prioritize recommendations by effort-to-impact ratio. A title tag change takes 5 minutes but can impact every search impression. A full content rewrite takes weeks.
 - If the user has run `/market audit` or `/market landing` previously, cross-reference those findings with the SEO audit for a more complete picture.
+- **Never claim a page returns 404 without testing it**. Use tools like curl or try accessing the URL directly in a browser before reporting it as broken.
+- **For structured data, recommend Google's Rich Results Test** as the definitive source. The automated script may miss schemas implemented via JavaScript or in formats other than JSON-LD.
+- **Be cautious about navigation/header element analysis**. Footer labels using H2 for visual styling is common and not necessarily an SEO issue if they're not used for content structure.
