@@ -460,6 +460,23 @@ Reserved                                  Bold
 1. [recommendation]
 ```
 
+## Accuracy Guardrails
+
+**MANDATORY:** Before finalizing any brand voice analysis, follow ALL rules in `skills/ACCURACY-GUARDRAILS.md`. Key rules for this skill:
+
+1. **Only quote text that was actually extracted from fetched pages.** Never paraphrase copy and present it as a direct quote. If you can't fetch a page, say "Page not accessible for analysis."
+2. **Voice dimension scores must cite specific evidence.** Every score on the Formal-Casual, Serious-Playful, Technical-Simple, and Reserved-Bold spectrums must include 2-3 direct quotes from the source material as justification.
+3. **Acknowledge limited source material.** If you could only fetch the homepage and about page (but not blog, social, or email), note: "Voice analysis based on limited source material (X pages). Additional channels should be reviewed for a complete picture."
+4. **Don't invent brand personality traits.** Voice characteristics must be grounded in observed copy, not assumptions about the industry or business type.
+5. **Use confidence levels** on voice assessments: Confirmed (strong pattern across multiple pages), Likely (observed on 1-2 pages), Needs Verification (inferred from limited data).
+
+### Verification Checklist
+Before delivering the report:
+- [ ] Every quoted example was directly extracted from a fetched page
+- [ ] Voice dimension scores are each supported by 2-3 specific quotes
+- [ ] The number of pages analyzed is disclosed
+- [ ] Competitor voice comparison only covers competitors whose pages were actually fetched
+
 ## Key Principles
 - Brand voice analysis requires reading like a detective. Every word choice, punctuation decision, and sentence structure reveals something about how the brand wants to be perceived.
 - Always provide EVIDENCE for every assessment. Don't just say "the brand is casual" -- quote specific examples that prove it.

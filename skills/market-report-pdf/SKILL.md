@@ -29,11 +29,12 @@ Gather data from all previous skill runs. Check for these files in the project d
 - `LANDING-CRO.md` -- Landing page conversion analysis
 - `SEO-AUDIT.md` -- SEO findings
 - `BRAND-VOICE.md` -- Brand voice analysis
-- `COMPETITOR-ANALYSIS.md` -- Competitor comparison data
+- `COMPETITOR-REPORT.md` -- Competitor comparison data
 - `FUNNEL-ANALYSIS.md` -- Funnel analysis
-- `SOCIAL-AUDIT.md` -- Social media audit
-- `EMAIL-AUDIT.md` -- Email marketing audit
-- `AD-AUDIT.md` -- Advertising audit
+- `AD-CAMPAIGNS.md` -- Ad campaign analysis
+- `SOCIAL-CALENDAR.md` -- Social media content calendar
+- `EMAIL-SEQUENCES.md` -- Email sequence analysis
+- `COPY-SUGGESTIONS.md` -- Copy analysis and suggestions
 
 **If no previous data exists:**
 1. Recommend the user run `/market audit <url>` first for the best results

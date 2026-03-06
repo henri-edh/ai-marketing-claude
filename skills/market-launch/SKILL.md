@@ -447,6 +447,18 @@ Generate a file called `LAUNCH-PLAYBOOK.md` with:
 [Week 8+ activities and analysis framework]
 ```
 
+## Launch Size Parameter
+
+Before generating the playbook, determine the launch scope. Ask the user if not specified, or infer from context:
+
+| Launch Size | When to Use | Output Scope |
+|---|---|---|
+| **Minimal** | Solo founder, limited budget (< $500), tight timeline (< 2 weeks) | Core essentials only: 1 email sequence (3 emails), 1 platform social plan, simple launch day checklist, no paid ads |
+| **Standard** | Small team, moderate budget ($500-$5,000), 4-6 week timeline | Full playbook: 2-3 email sequences, 2-3 social platforms, basic paid ads plan, partner outreach, launch day checklist |
+| **Full** | Established team, significant budget ($5,000+), 8+ week timeline | Everything: all email sequences, all social platforms, comprehensive paid ads across multiple platforms, PR plan, influencer strategy, partner program, event/webinar, full post-launch analysis |
+
+Default to **Standard** if the user doesn't specify. If the user seems overwhelmed by the output, suggest scaling down to Minimal.
+
 ## Key Principles
 - Every recommendation should be tied to the user's specific product, audience, and resources. Generic advice is useless.
 - Include specific templates they can copy-paste and customize, not just frameworks.

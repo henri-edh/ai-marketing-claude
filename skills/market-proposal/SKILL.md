@@ -30,7 +30,19 @@ Collect these details from the user (ask if not provided):
 3. Proposed timeline
 4. Your relevant case studies or results
 
-**If audit data exists:** Check for any previous `/market audit` results. If found, automatically incorporate the findings into the Situation Analysis section for a data-backed proposal.
+**Auto-populate from prior audit data:** Before asking the user for information, check for these files and extract data automatically:
+
+| File | What to Extract | Use In |
+|---|---|---|
+| `MARKETING-AUDIT.md` | Overall score, category scores, top findings, quick wins | Sections 2 (Executive Summary), 3 (Situation Analysis), 8 (ROI Projection) |
+| `SEO-AUDIT.md` | SEO health score, title/meta issues, content gaps | Section 3 (Situation Analysis — SEO opportunities) |
+| `COMPETITOR-REPORT.md` | Competitor names, positioning gaps, feature comparison | Section 3 (Competitive Landscape), Section 4 (Strategy differentiation) |
+| `LANDING-CRO.md` | CRO score, conversion rate estimates, quick wins | Section 3 (Conversion opportunities), Section 8 (ROI — conversion improvement) |
+| `BRAND-VOICE.md` | Voice profile, consistency score | Section 3 (Content assessment) |
+| `FUNNEL-ANALYSIS.md` | Funnel type, bottlenecks, revenue estimates | Section 4 (Strategy), Section 8 (ROI Projection) |
+| `COPY-SUGGESTIONS.md` | Copy score, top fixes | Section 3 (Messaging assessment) |
+
+If any of these files exist, use their data to pre-fill the Situation Analysis (Section 3) and ROI Projection (Section 8) so the proposal is data-backed rather than generic. Data-backed proposals close at 2-3x the rate of generic proposals.
 
 ### Step 2: Discovery Call Question Framework
 If the user hasn't had the discovery call yet, provide these 10 essential questions:

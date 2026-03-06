@@ -120,6 +120,29 @@ Based on the competitive analysis, identify:
 - [ ] Develop switching guide for [Competitor] users
 ```
 
+## Scoring Calibration Examples
+
+**Positioning Clarity:**
+- **9/10**: "The scheduling tool for high-growth sales teams" — instantly clear who it's for, what it does, and why it's different.
+- **5/10**: "Better scheduling for everyone" — clear what it does, but no differentiation or audience targeting.
+- **2/10**: "Empowering teams with innovative solutions" — could be any product in any industry.
+
+**Market Awareness:**
+- **9/10**: Has "[Competitor] vs Us" pages, "Why Switch" page, FAQ addressing competitor comparisons, "Alternative to [Competitor]" content.
+- **5/10**: Mentions differentiation on homepage but no dedicated comparison content.
+- **2/10**: No acknowledgment of alternatives, no comparison content, no "why us" messaging.
+
+**Content Authority:**
+- **9/10**: 100+ blog posts, research reports, webinar library, podcast, guest posts on industry sites, speaking at conferences.
+- **5/10**: 20-50 blog posts, some depth, occasional industry contributions.
+- **2/10**: No blog, no educational content, website is purely a product page.
+
+## Accuracy Guardrails
+Follow ALL rules in `skills/ACCURACY-GUARDRAILS.md`. Key rules:
+- Only report competitor data from pages you actually fetched — don't invent pricing, features, or user counts
+- If a competitor site blocks scraping or returns minimal content, note: "Limited data — site may block automated access"
+- Mark feature/pricing comparisons with confidence levels based on source quality
+
 ## Important Rules
 - Actually fetch competitor websites — don't rely on assumptions
 - Be objective — acknowledge when competitors are stronger in certain areas

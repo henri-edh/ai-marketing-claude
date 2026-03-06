@@ -449,6 +449,41 @@ Full campaigns saved to: AD-CAMPAIGNS.md
 
 ---
 
+## Platform Policy Compliance Check
+
+**IMPORTANT:** Before finalizing any ad copy, check against these platform-specific policies. Include a compliance note in every AD-CAMPAIGNS.md output.
+
+### Meta (Facebook/Instagram) Ads Policy
+- [ ] **No personal attributes:** Don't imply knowledge of personal characteristics. Avoid "Are you struggling with...?" or "As a [identity] person..." — Use "Many businesses find that..." instead
+- [ ] **No before/after claims** without substantiation (especially health/fitness)
+- [ ] **No misleading claims:** Avoid "guaranteed results", unrealistic promises
+- [ ] **No restricted content** without approval: alcohol, dating, financial services, health, political ads require special ad categories
+- [ ] **Landing page match:** Ad content must match landing page content (no bait-and-switch)
+- [ ] **Image text:** Keep text on images under 20% (no longer strictly enforced but still impacts delivery)
+
+### Google Ads Policy
+- [ ] **No superlatives without proof:** Avoid "best", "#1", "top-rated" unless backed by third-party verification
+- [ ] **No trademark violations:** Don't use competitor trademarks in ad text (allowed in keywords, restricted in ad copy)
+- [ ] **Healthcare restrictions:** Health-related claims require certification; avoid diagnosis/treatment language
+- [ ] **Financial services:** Interest rates, loan terms must be accurate; disclaimers required
+- [ ] **Capitalization:** No random capitalization for emphasis (e.g., "FREE" or "BEST")
+- [ ] **Punctuation:** No excessive punctuation (!!!) or symbols used as letters (f@st)
+- [ ] **Character limits:** Headlines 30 chars, descriptions 90 chars (responsive search ads)
+
+### LinkedIn Ads Policy
+- [ ] **Professional tone:** Content must maintain professional standards
+- [ ] **No discriminatory targeting:** Can't target by age, gender, or ethnicity for employment, housing, or credit ads
+- [ ] **Data collection:** Lead gen forms must clearly state how data will be used
+- [ ] **B2B focus:** LinkedIn favors professional/business content; consumer-style ads may underperform
+- [ ] **Sponsored content:** Must be clearly identified as advertising
+
+### General Compliance
+- [ ] All claims are substantiated or clearly marked as testimonial/opinion
+- [ ] Pricing is accurate and not misleading
+- [ ] Terms and conditions are linked where required
+- [ ] Privacy policy is accessible from landing pages
+- [ ] Disclaimers are included where legally required (varies by industry)
+
 ## Cross-Skill Integration
 
 - If `COPY-SUGGESTIONS.md` exists, reuse value propositions and messaging angles

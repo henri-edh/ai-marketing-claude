@@ -528,6 +528,25 @@ Full report saved to: COMPETITOR-REPORT.md
 
 ---
 
+## Accuracy Guardrails
+
+**MANDATORY:** Before finalizing any competitive analysis, follow ALL rules in `skills/ACCURACY-GUARDRAILS.md`. Key rules for this skill:
+
+1. **Only report competitor data you can verify.** If you fetch a competitor's homepage but can't access their pricing page, say "Pricing page not accessible" — don't guess their pricing. Never invent features, pricing tiers, or user counts.
+2. **Distinguish observed data from inferred data.** If a competitor's homepage says "10,000+ users," that's observed. If you estimate their market share, that's inferred. Label accordingly.
+3. **Acknowledge scraping limitations.** Many competitor sites use JS rendering, require authentication, or block scrapers. If a page returns minimal content, note: "Limited data extracted — site may require JavaScript rendering or blocks automated access."
+4. **Don't fabricate review data.** If you can't access G2, Capterra, or Trustpilot data, say so. Don't invent star ratings or review counts.
+5. **Use confidence levels** on all competitive claims: Confirmed (directly observed on their site), Likely (strong evidence from multiple sources), Needs Verification (inferred or estimated).
+6. **Feature comparisons require evidence.** Don't mark a competitor as having or lacking a feature unless you found evidence on their site. Use "Unknown" when you can't determine.
+
+### Verification Checklist
+Before delivering the report:
+- [ ] Every competitor URL was actually fetched
+- [ ] Pricing data is sourced from actual pricing pages, not guesses
+- [ ] Feature claims are based on observed page content
+- [ ] Review data is from actual platforms or clearly marked as unavailable
+- [ ] SWOT analysis items are tied to specific evidence
+
 ## Cross-Skill Integration
 
 - If `MARKETING-AUDIT.md` exists, reference competitive positioning scores

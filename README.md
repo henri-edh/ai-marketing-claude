@@ -119,11 +119,13 @@ ai-marketing-claude/
 │   ├── market-technical.md             # Technical SEO & tracking
 │   └── market-strategy.md              # Brand, pricing & growth strategy
 │
+├── skills/ACCURACY-GUARDRAILS.md       # Shared accuracy rules for all analytical skills
+│
 ├── scripts/                            # Python utility scripts
 │   ├── analyze_page.py                 # Webpage marketing analysis (improved parser)
-│   ├── competitor_scanner.py           # Competitor website scanner
-│   ├── social_calendar.py              # Social content calendar generator
-│   └── generate_pdf_report.py          # PDF report generator
+│   ├── competitor_scanner.py           # Competitor website scanner (SSL-verified)
+│   ├── social_calendar.py              # Social content calendar generator (validated input)
+│   └── generate_pdf_report.py          # PDF report generator (data-driven weights)
 │
 ├── templates/                          # Marketing templates
 │   ├── email-welcome.md                # Welcome email sequence (5 emails)
@@ -169,15 +171,47 @@ The full marketing audit scores websites across 6 dimensions:
 5. **Results are compiled** — into a scored, prioritized, actionable report
 6. **Output is saved** — as a Markdown file or professional PDF
 
+### Accuracy Guardrails
+
+All analytical skills follow mandatory accuracy rules to prevent false findings:
+
+- **Never fabricate URLs** — only reference pages actually fetched or found in links
+- **JavaScript-rendering awareness** — flags when content may be dynamically loaded
+- **Confidence levels** — every finding tagged as Confirmed, Likely, or Needs Verification
+- **Scraper limitation transparency** — reports always disclose methodology limitations
+- **Design choices vs failures** — distinguishes intentional design decisions from actual problems
+- **Verification checklists** — built into every analytical skill's output process
+
 ### Improved SEO Analysis
 
-The SEO analysis script now includes:
+The SEO analysis script includes:
 
 - **Accurate title tag extraction** — only from `<head>`, ignoring SVG elements
-- **Proper heading detection** — handles nested content correctly
+- **Heading context tracking** — distinguishes nav/footer headings from content headings
 - **Multiple structured data formats** — JSON-LD, Microdata, and RDFa detection
 - **Redirect analysis** — tracks www vs non-www, redirect chains
-- **Verification warnings** — reminds you to verify findings manually
+- **Section-aware analysis** — understands semantic HTML5 sections (main, nav, header, footer, aside)
+
+### Scoring Calibration
+
+All 5 audit subagents include concrete scoring examples (what a 2/10, 5/10, and 9/10 looks like) to ensure consistent, reproducible scores across different analyses.
+
+### Cross-Skill Integration
+
+Skills automatically detect and use output from other skills:
+
+| Skill Writes | Other Skills Read It |
+|---|---|
+| `MARKETING-AUDIT.md` | copy, emails, funnel, report, report-pdf, proposal |
+| `COMPETITOR-REPORT.md` | copy, ads, funnel, social, report, report-pdf |
+| `BRAND-VOICE.md` | copy, social, emails, report, report-pdf |
+| `COPY-SUGGESTIONS.md` | ads, funnel, emails, social, competitors |
+| `SEO-AUDIT.md` | report, report-pdf, proposal |
+| `FUNNEL-ANALYSIS.md` | ads, emails, competitors, report |
+| `EMAIL-SEQUENCES.md` | funnel, social, report |
+| `AD-CAMPAIGNS.md` | report, report-pdf |
+| `SOCIAL-CALENDAR.md` | ads, report, report-pdf |
+| `LANDING-CRO.md` | report, report-pdf, proposal |
 
 ---
 
@@ -235,6 +269,37 @@ rm -f ~/.claude/agents/market-*.md
 Want to learn how to build a marketing agency powered by AI tools like this?
 
 **[Join the AI Workshop Community](https://www.skool.com/aiworkshop)** — Learn AI automations, vibe coding, and how to build AI-powered services for clients.
+
+---
+
+## Recent Improvements
+
+### v2.1 — Accuracy & Reliability Update
+
+**Accuracy Guardrails (Critical)**
+- Added shared `ACCURACY-GUARDRAILS.md` with 8 mandatory rules for all analytical skills
+- Ported guardrails to market-landing, market-copy, market-funnel, market-competitors, and market-brand
+- Added verification checklists to prevent hallucinated findings (fabricated URLs, misquoted copy)
+- All 5 audit subagents now include scoring calibration examples for consistent scoring
+
+**Security & Stability Fixes**
+- `competitor_scanner.py`: Re-enabled SSL certificate verification (was disabled — MITM risk)
+- `competitor_scanner.py`: Replaced bare `except:` blocks with proper error handling and logging
+- `social_calendar.py`: Added input validation (platform names, day bounds 1-90, error messages)
+
+**Cross-Skill Integration Fixes**
+- Fixed 5 incorrect file references in report and report-pdf skills (e.g., `COMPETITOR-ANALYSIS.md` → `COMPETITOR-REPORT.md`)
+- All skills now reference correct output filenames for seamless cross-skill data sharing
+
+**Feature Additions**
+- `market-emails`: Comprehensive deliverability checklist (CAN-SPAM, GDPR, spam triggers, sender reputation)
+- `market-ads`: Platform policy compliance checks for Meta, Google, and LinkedIn
+- `market-launch`: Launch size parameter (Minimal/Standard/Full) to scope output appropriately
+- `market-funnel`: Revenue estimates now labeled with `[ESTIMATE]` tags and "Data Needed" section
+- `market-proposal`: Auto-population table mapping 7 prior audit files to proposal sections
+- `generate_pdf_report.py`: Weights now read from JSON data; intelligent label abbreviation
+- `social_calendar.py`: Hook formulas expanded from 6 to 15 per platform
+- `competitor_scanner.py`: Pricing page detection expanded from 3 to 7 URL paths
 
 ---
 

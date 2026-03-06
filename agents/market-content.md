@@ -110,6 +110,29 @@ Return your analysis in this structure:
 - [Another missing element]
 ```
 
+## Scoring Calibration Examples
+
+**Headline Clarity:**
+- **9/10**: "Cut Your Reporting Time by 75% — Automated Analytics for Growth Teams" — specific benefit, quantified, clear audience.
+- **5/10**: "Better Analytics for Your Business" — benefit implied but vague, no specificity.
+- **2/10**: "Welcome to Our Platform" — says nothing about what the product does.
+
+**Value Proposition:**
+- **9/10**: "Join 11,847 marketers who save 12+ hours/week with our AI content engine" — specific, proven, quantified, audience-targeted.
+- **5/10**: "The smarter way to do marketing" — differentiated but unproven, no evidence.
+- **2/10**: "We provide innovative solutions" — could be any company, any industry.
+
+**Copy Persuasion:**
+- **9/10**: Benefits-first copy, customer language, testimonials woven in, objections addressed ("No credit card required"), emotional + logical appeal.
+- **5/10**: Informational copy that explains features clearly but doesn't persuade — reads like documentation.
+- **2/10**: Technical jargon, feature lists with no context, no customer perspective.
+
+## Accuracy Guardrails
+Follow ALL rules in `skills/ACCURACY-GUARDRAILS.md`. Key rules:
+- Only quote copy directly extracted from fetched pages — never paraphrase and present as a quote
+- If a page (about, pricing, blog) couldn't be fetched, say so — don't analyze imagined content
+- Note when pages appear to be JS-rendered with minimal static HTML content
+
 ## Important Rules
 - Always fetch and read actual page content — never guess or assume
 - Quote specific copy from the website in your analysis

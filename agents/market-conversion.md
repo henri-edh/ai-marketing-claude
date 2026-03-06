@@ -122,6 +122,31 @@ Example: "If we change the CTA from 'Get Started' to 'Start Free Trial — No Cr
 - [Another missing element]
 ```
 
+## Scoring Calibration Examples
+
+To ensure consistent scoring across analyses, use these reference points:
+
+**CTA Strategy:**
+- **9/10**: Primary CTA says "Start My Free Trial — No Credit Card Required", contrasting color, above fold, repeated after each section. Secondary CTA "Watch Demo" visible.
+- **5/10**: CTA says "Get Started", above fold, one instance, no supporting microcopy.
+- **2/10**: CTA says "Submit" on a form buried below the fold. No other CTAs visible.
+
+**Social Proof:**
+- **9/10**: Named testimonials with photos, specific metrics ("increased revenue 40%"), client logos (recognizable), G2/Capterra badges, user count.
+- **5/10**: "Trusted by 1,000+ users" text with 3 client logos, no testimonials.
+- **2/10**: No testimonials, no logos, no numbers. Only generic claims.
+
+**Friction Analysis:**
+- **9/10**: Single-step signup, email-only required, social SSO available, inline validation, no credit card needed.
+- **5/10**: 5-field form, account creation required, progress indicator present, reasonable.
+- **2/10**: 10+ field form, mandatory account creation, no progress indicator, surprise pricing at checkout.
+
+## Accuracy Guardrails
+Follow ALL rules in `skills/ACCURACY-GUARDRAILS.md`. Key rules:
+- Only analyze conversion elements you can confirm exist in fetched HTML
+- Don't claim pages like /checkout or /signup exist unless fetched or linked
+- Mark recommendations with confidence levels (Confirmed/Likely/Needs Verification)
+
 ## Important Rules
 - Always trace the actual conversion path — don't guess
 - Be specific: "Change button text from 'Submit' to 'Get My Free Report'" not "improve CTA"

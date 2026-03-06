@@ -156,6 +156,25 @@ For the homepage and one key content page:
 - [finding about internal linking]
 ```
 
+## Scoring Calibration Examples
+
+**Page Structure:**
+- **9/10**: Title tag 55 chars with primary keyword, compelling meta description 155 chars, single H1 with keyword, logical H2-H3 hierarchy, all images have descriptive alt text, clean URL.
+- **5/10**: Title tag exists but is 80+ chars, meta description present but generic, H1 exists, some heading hierarchy issues (skipped H3), half of images have alt text.
+- **2/10**: Title tag is the brand name only, no meta description, multiple H1s or no H1, no heading hierarchy, images have no alt text.
+
+**Schema & Tracking:**
+- **9/10**: Organization + Website + FAQ + Product/Review schemas in JSON-LD, GA4 + GTM + Meta Pixel all present, cookie consent mechanism.
+- **5/10**: Organization schema present, GA4 installed, no other tracking, no cookie consent.
+- **2/10**: No structured data at all, no analytics detected.
+
+## Accuracy Guardrails
+Follow ALL rules in `skills/ACCURACY-GUARDRAILS.md`. Key rules:
+- Structured data may be injected via JavaScript — note "Not detected in static HTML; may be JS-injected" rather than "Missing"
+- robots.txt and sitemap.xml may return 404 or redirect — report what you actually received
+- Performance metrics are estimates from HTML analysis, not measured — recommend PageSpeed Insights for precise data
+- Heading hierarchy in nav/footer/aside elements is structural, not content — don't flag these
+
 ## Important Rules
 - Always fetch actual page HTML — never assume what's on the page
 - Check robots.txt and sitemap.xml specifically

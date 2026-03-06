@@ -158,35 +158,54 @@ If the funnel includes a lead magnet, evaluate:
 
 ### 3.1 Key Funnel Metrics
 
-Calculate (or estimate based on industry benchmarks) these metrics:
+Calculate (or estimate based on industry benchmarks) these metrics.
+
+**IMPORTANT:** If using estimates rather than actual data, mark every value with `[ESTIMATE]`. Add this "Data Needed" block at the top of the Funnel Metrics section in the output:
+
+```
+DATA NEEDED FOR ACCURATE ANALYSIS
+==================================
+To replace estimates with real data, provide:
+  - Monthly unique visitors (from Google Analytics)
+  - Conversion rate by stage (from your CRM or analytics)
+  - Average order value or deal size
+  - Customer lifetime value
+  - Current customer acquisition cost
+  - Traffic source breakdown
+
+Without this data, all metrics below are ESTIMATES based on
+industry benchmarks and may not reflect your actual performance.
+```
 
 ```
 FUNNEL METRICS
 ==============
 
 Traffic Metrics:
-  Monthly Visitors: [estimated or ask user]
-  Traffic Sources: [organic %, paid %, referral %, direct %, social %]
+  Monthly Visitors: [estimated or ask user] [ESTIMATE if not provided]
+  Traffic Sources: [organic %, paid %, referral %, direct %, social %] [ESTIMATE]
 
 Conversion Metrics:
-  Visitor → Lead: [X]% (benchmark: 2-5%)
-  Lead → MQL: [X]% (benchmark: 15-30%)
-  MQL → Opportunity: [X]% (benchmark: 30-50%)
-  Opportunity → Customer: [X]% (benchmark: 20-40%)
-  Overall Visitor → Customer: [X]% (benchmark: 0.5-3%)
+  Visitor → Lead: [X]% (benchmark: 2-5%) [ESTIMATE]
+  Lead → MQL: [X]% (benchmark: 15-30%) [ESTIMATE]
+  MQL → Opportunity: [X]% (benchmark: 30-50%) [ESTIMATE]
+  Opportunity → Customer: [X]% (benchmark: 20-40%) [ESTIMATE]
+  Overall Visitor → Customer: [X]% (benchmark: 0.5-3%) [ESTIMATE]
 
 Revenue Metrics:
-  Average Order Value (AOV): $[X]
-  Customer Lifetime Value (LTV): $[X]
-  Customer Acquisition Cost (CAC): $[X]
-  LTV:CAC Ratio: [X]:1 (target: 3:1 or higher)
-  Revenue Per Visitor (RPV): $[X]
+  Average Order Value (AOV): $[X] [ESTIMATE]
+  Customer Lifetime Value (LTV): $[X] [ESTIMATE]
+  Customer Acquisition Cost (CAC): $[X] [ESTIMATE]
+  LTV:CAC Ratio: [X]:1 (target: 3:1 or higher) [ESTIMATE]
+  Revenue Per Visitor (RPV): $[X] [ESTIMATE]
 
 Engagement Metrics:
-  Pages Per Session: [X]
-  Average Session Duration: [X] min
-  Bounce Rate: [X]% (benchmark: 30-60%)
+  Pages Per Session: [X] [ESTIMATE]
+  Average Session Duration: [X] min [ESTIMATE]
+  Bounce Rate: [X]% (benchmark: 30-60%) [ESTIMATE]
 ```
+
+Remove the `[ESTIMATE]` label from any value the user provides with actual data.
 
 ### 3.2 Revenue-Per-Visitor Calculation
 
@@ -433,6 +452,23 @@ Full analysis saved to: FUNNEL-ANALYSIS.md
 ```
 
 ---
+
+## Accuracy Guardrails
+
+**MANDATORY:** Before finalizing any funnel analysis, follow ALL rules in `skills/ACCURACY-GUARDRAILS.md`. Key rules for this skill:
+
+1. **Only map funnel steps you can verify exist.** Do NOT assume pages like `/checkout`, `/onboarding`, `/thank-you` exist. Only include URLs that were actually fetched or found in page links. If you can't verify a step, mark it as "[ASSUMED — needs verification]".
+2. **Never fabricate conversion rates.** If you don't have actual analytics data, clearly label all percentages as "estimated based on industry benchmarks" and mark them with `[ESTIMATE]`.
+3. **Revenue estimates are assumptions.** All RPV calculations, revenue projections, and lift estimates that aren't based on user-provided data MUST be labeled `[ASSUMPTION]` with a note: "These estimates require actual traffic and revenue data for accuracy. The numbers shown are based on industry benchmarks."
+4. **Use confidence levels** on all findings: Confirmed (directly observed), Likely (strong evidence), Needs Verification (estimated or assumed).
+5. **Include a "Data Needed" section** at the top of FUNNEL-ANALYSIS.md listing what data the user should provide for accurate analysis (monthly traffic, conversion rates, AOV, etc.).
+
+### Verification Checklist
+Before delivering the report:
+- [ ] Every funnel step URL was actually fetched or found in page links
+- [ ] All conversion rates are labeled as real data or estimates
+- [ ] Revenue projections are clearly marked as assumptions where applicable
+- [ ] No checkout, onboarding, or post-purchase pages were fabricated
 
 ## Cross-Skill Integration
 

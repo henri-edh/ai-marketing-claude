@@ -19,12 +19,12 @@ Before generating the report, check for any existing audit data from previous sk
 - `LANDING-CRO.md` -- from `/market landing`
 - `SEO-AUDIT.md` -- from `/market seo`
 - `BRAND-VOICE.md` -- from `/market brand`
-- `COMPETITOR-ANALYSIS.md` -- from `/market competitors`
+- `COMPETITOR-REPORT.md` -- from `/market competitors`
 - `FUNNEL-ANALYSIS.md` -- from `/market funnel`
-- `CONTENT-AUDIT.md` -- from content analysis
-- `AD-AUDIT.md` -- from `/market ads`
-- `SOCIAL-AUDIT.md` -- from `/market social`
-- `EMAIL-AUDIT.md` -- from `/market emails`
+- `AD-CAMPAIGNS.md` -- from `/market ads`
+- `SOCIAL-CALENDAR.md` -- from `/market social`
+- `EMAIL-SEQUENCES.md` -- from `/market emails`
+- `COPY-SUGGESTIONS.md` -- from `/market copy`
 
 If no previous data exists, inform the user and offer to:
 1. Run a quick audit first (recommended)

@@ -96,8 +96,21 @@ def create_bar_chart(categories, scores, width=450, height=180):
     for i, (cat, score) in enumerate(zip(categories, scores)):
         y = start_y - i * (bar_height + gap)
 
-        # Category label
-        d.add(String(label_x, y + 5, cat[:22],
+        # Category label — abbreviate intelligently if needed
+        display_cat = cat
+        if len(cat) > 24:
+            abbreviations = {
+                "Optimization": "Opt.",
+                "Discoverability": "Disc.",
+                "Positioning": "Pos.",
+                "Messaging": "Msg.",
+                "& ": "& ",
+            }
+            for full, short in abbreviations.items():
+                if len(display_cat) > 24:
+                    display_cat = display_cat.replace(full, short)
+            display_cat = display_cat[:28]
+        d.add(String(label_x, y + 5, display_cat,
                      fontSize=9, fillColor=COLORS["text"],
                      textAnchor="start", fontName="Helvetica"))
 
@@ -223,12 +236,13 @@ def generate_report(data, output_path):
     elements.append(chart)
     elements.append(Spacer(1, 0.3 * inch))
 
-    # Score table
+    # Score table — read weights from data if available, otherwise use defaults
     score_data = [["Category", "Score", "Weight", "Status"]]
-    weights = ["25%", "20%", "20%", "15%", "10%", "10%"]
+    default_weights = ["25%", "20%", "20%", "15%", "10%", "10%"]
     for i, (name, score) in enumerate(zip(cat_names, cat_scores)):
         status = "Strong" if score >= 75 else "Needs Work" if score >= 50 else "Critical"
-        weight = weights[i] if i < len(weights) else "—"
+        # Prefer weight from data, fall back to defaults
+        weight = categories.get(name, {}).get("weight", default_weights[i] if i < len(default_weights) else "—")
         score_data.append([name, f"{int(score)}/100", weight, status])
 
     score_table = Table(score_data, colWidths=[180, 70, 60, 90])

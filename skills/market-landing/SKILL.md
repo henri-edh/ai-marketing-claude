@@ -319,6 +319,24 @@ Generate a file called `LANDING-CRO.md` in the project root or output directory 
 [Text-based wireframe descriptions of current vs recommended layout]
 ```
 
+## Accuracy Guardrails
+
+**MANDATORY:** Before finalizing any CRO analysis, follow ALL rules in `skills/ACCURACY-GUARDRAILS.md`. Key rules for this skill:
+
+1. **Only reference elements you can confirm exist.** If WebFetch returns HTML that doesn't contain a form, FAQ, or testimonial section, do NOT claim it's "missing." It may be rendered via JavaScript. Say: "Not detected in static HTML analysis — verify in browser."
+2. **Never fabricate page URLs.** Don't assume `/pricing`, `/signup`, or `/about` exist. Only reference URLs found in the fetched HTML or provided by the user.
+3. **Quote copy exactly.** When citing headlines, CTA text, or body copy, only quote text extracted from the actual fetched page. Never paraphrase and present it as a direct quote.
+4. **Use confidence levels** on all findings: Confirmed, Likely, or Needs Verification.
+5. **Include a Methodology & Limitations section** in every LANDING-CRO.md output noting that analysis is based on static HTML and may miss JS-rendered content.
+
+### Verification Checklist
+Before delivering the report:
+- [ ] Every URL referenced was actually fetched or found in page links
+- [ ] Every "missing" element is qualified with JS-rendering caveat where applicable
+- [ ] No copy has been quoted that wasn't directly extracted from the page
+- [ ] All findings have confidence levels assigned
+- [ ] Design choices are distinguished from actual problems
+
 ## Key Principles
 - Always tie recommendations to REVENUE IMPACT. Don't just say "change the button color" -- say "changing the CTA button to a contrasting color typically increases clicks 15-30%, which at your current traffic could mean X more conversions per month."
 - Prioritize fixes by effort-to-impact ratio. Quick wins first.

@@ -328,6 +328,23 @@ Write the full report to `COPY-SUGGESTIONS.md` with this structure:
 
 ---
 
+## Accuracy Guardrails
+
+**MANDATORY:** Before finalizing any copy analysis, follow ALL rules in `skills/ACCURACY-GUARDRAILS.md`. Key rules for this skill:
+
+1. **Quote existing copy exactly.** When showing "BEFORE" examples, only use text directly extracted from the fetched page. Never paraphrase and present it as the current copy.
+2. **Don't invent page sections.** If WebFetch doesn't return a pricing page, about page, or blog, don't analyze copy that doesn't exist. Note: "Page not fetched — analysis not possible."
+3. **Acknowledge JS-rendering limitations.** Many modern sites load copy dynamically. If the fetched HTML seems sparse, note: "Page content may be rendered via JavaScript — copy extracted from static HTML only."
+4. **Use confidence levels** on copy scoring: Confirmed (extracted from HTML), Likely (inferred from context), Needs Verification (couldn't fully analyze).
+5. **Design choices vs problems.** Not every unconventional copy choice is wrong. A brand that uses minimal copy may be doing so intentionally. Frame as "consideration" not "failure."
+
+### Verification Checklist
+Before delivering the report:
+- [ ] Every "BEFORE" quote was directly extracted from the fetched page
+- [ ] No page sections were analyzed that weren't actually fetched
+- [ ] Voice analysis is based on actual observed copy, not assumptions
+- [ ] All scores are justified with specific quoted evidence
+
 ## Cross-Skill Integration
 
 - If `BRAND-VOICE.md` exists, use its voice guidelines to calibrate generated copy

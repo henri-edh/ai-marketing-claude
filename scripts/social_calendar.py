@@ -96,7 +96,16 @@ HOOK_FORMULAS = {
         "{Number} things I wish I knew before {action}:",
         "I spent {time} analyzing {topic}. Here are {number} findings:",
         "Stop {common mistake}. Do this instead:",
-        "The {industry} is changing. Here's what nobody is talking about:"
+        "The {industry} is changing. Here's what nobody is talking about:",
+        "I asked {number} {experts/customers} one question. The answers surprised me:",
+        "{Famous company} does {thing}. Here's what we can learn:",
+        "3 things I'd do differently if I started {X} today:",
+        "The difference between {good thing} and {great thing}:",
+        "Everyone talks about {popular topic}. Nobody talks about {overlooked topic}:",
+        "I've been in {industry} for {time}. Here's the hard truth:",
+        "Your {competitor/industry} won't tell you this, but {insight}:",
+        "The most underrated {skill/tool/strategy} in {industry}:",
+        "I made this mistake for {time}. Don't repeat it:"
     ],
     "twitter": [
         "{Topic} is broken. Here's a thread on how to fix it 🧵",
@@ -104,7 +113,16 @@ HOOK_FORMULAS = {
         "Unpopular opinion: {bold statement}",
         "You don't need {thing}. You need {better thing}. Here's why:",
         "{Number} {things} that will {benefit} (thread):",
-        "The biggest mistake in {topic}? {Mistake}. Let me explain:"
+        "The biggest mistake in {topic}? {Mistake}. Let me explain:",
+        "Hot take: {contrarian statement}. Let me explain.",
+        "Here's a framework for {thing} that nobody talks about:",
+        "{Topic} isn't what you think it is. A thread:",
+        "The {topic} playbook I wish I had {time} ago:",
+        "I went from {before state} to {after state}. Here's the blueprint:",
+        "{Audience}: Stop doing {bad thing}. Start doing {good thing}.",
+        "If you're still {old approach}, you're leaving money on the table:",
+        "{Number} signs your {thing} isn't working (and how to fix each one):",
+        "The {topic} advice everyone gives is wrong. Here's what actually works:"
     ],
     "instagram": [
         "Save this for later ↓",
@@ -112,7 +130,16 @@ HOOK_FORMULAS = {
         "{Number} things about {topic} that will blow your mind",
         "The {topic} cheat sheet you didn't know you needed",
         "If you're struggling with {problem}, try this →",
-        "I turned {input} into {impressive output}. Here's how:"
+        "I turned {input} into {impressive output}. Here's how:",
+        "Before vs after {transformation}",
+        "My exact {framework/process/system} for {result}:",
+        "{Number} signs you're {problem} (and how to fix it)",
+        "What {audience} gets wrong about {topic}:",
+        "The {topic} starter pack →",
+        "Stop scrolling if you {have problem}. This will change everything:",
+        "I tested {X} for {time}. Results inside.",
+        "Nobody talks about {overlooked thing} in {industry}:",
+        "The only {number} {things} you need to {achieve result}:"
     ],
     "tiktok": [
         "Wait for it... (transformation reveal)",
@@ -120,7 +147,16 @@ HOOK_FORMULAS = {
         "POV: You discover {useful thing}",
         "I can't believe {surprising thing} actually works",
         "Replying to @user — here's how I {do thing}",
-        "Day {X} of {challenge/series}"
+        "Day {X} of {challenge/series}",
+        "Wait, you're still doing {old way}?",
+        "Here's the {topic} hack nobody showed you",
+        "If you're a {audience}, watch this",
+        "The #1 reason your {thing} isn't working",
+        "Story time: {intriguing setup}",
+        "{Industry} secrets they don't want you to know",
+        "I need to talk about {trending topic}",
+        "Watch me {do impressive thing} in {short time}",
+        "This changed everything for my {business/life/workflow}:"
     ]
 }
 
@@ -220,8 +256,31 @@ def main():
         return
 
     topic = sys.argv[1]
-    platforms = sys.argv[2].split(",") if len(sys.argv) > 2 else ["linkedin", "twitter", "instagram"]
-    days = int(sys.argv[3]) if len(sys.argv) > 3 else 30
+
+    # Validate platforms
+    valid_platforms = set(POSTING_FREQUENCY.keys())
+    if len(sys.argv) > 2:
+        platforms = sys.argv[2].split(",")
+        invalid = [p for p in platforms if p not in valid_platforms]
+        if invalid:
+            print(json.dumps({
+                "error": f"Invalid platform(s): {', '.join(invalid)}",
+                "valid_platforms": sorted(valid_platforms)
+            }, indent=2))
+            return
+    else:
+        platforms = ["linkedin", "twitter", "instagram"]
+
+    # Validate days
+    try:
+        days = int(sys.argv[3]) if len(sys.argv) > 3 else 30
+    except ValueError:
+        print(json.dumps({"error": f"Invalid days value: {sys.argv[3]}. Must be a number."}))
+        return
+
+    if days < 1 or days > 90:
+        print(json.dumps({"error": f"Days must be between 1 and 90 (got {days})."}))
+        return
 
     calendar = generate_calendar(topic, platforms, days)
     print(json.dumps(calendar, indent=2))

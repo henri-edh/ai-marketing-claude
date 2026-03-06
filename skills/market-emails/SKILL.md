@@ -405,6 +405,44 @@ Full sequences saved to: EMAIL-SEQUENCES.md
 
 ---
 
+## Deliverability Checklist
+
+**IMPORTANT:** Every email sequence generated must pass this deliverability checklist. Include this section in every EMAIL-SEQUENCES.md output.
+
+### CAN-SPAM / GDPR / CASL Compliance
+- [ ] Every email includes a physical mailing address (required by CAN-SPAM)
+- [ ] Every email includes a clear, working unsubscribe link
+- [ ] Subject lines are not deceptive or misleading
+- [ ] "From" name and email address are accurate and recognizable
+- [ ] Opt-in method is documented (single opt-in vs double opt-in)
+- [ ] GDPR: Consent mechanism documented for EU subscribers
+- [ ] CASL: Express consent obtained for Canadian subscribers
+
+### Spam Trigger Avoidance
+Avoid these patterns in subject lines and email body:
+- ALL CAPS words (e.g., "FREE", "BUY NOW", "GUARANTEED")
+- Excessive exclamation marks (!!!)
+- Spam trigger phrases: "Act now", "Limited time", "Click here", "No obligation", "100% free", "Winner", "Congratulations"
+- Misleading subject lines (e.g., "RE:" or "FWD:" when it's not a reply/forward)
+- Image-only emails with no text content
+- Too many links relative to text content
+
+### Sender Reputation Protection
+- [ ] New domains/IPs should warm up gradually (start with 50-100 sends/day, increase 25% daily)
+- [ ] Maintain list hygiene: remove hard bounces immediately, soft bounces after 3 attempts
+- [ ] Target < 0.1% spam complaint rate (industry standard)
+- [ ] Target < 2% hard bounce rate
+- [ ] Send frequency: don't exceed 1 email/day for nurture sequences (unless user explicitly opted into daily)
+- [ ] Include plain-text version alongside HTML
+- [ ] Authenticate with SPF, DKIM, and DMARC records
+
+### Pre-Send Checklist
+- [ ] Test all links (especially unsubscribe)
+- [ ] Preview in multiple email clients (Gmail, Outlook, Apple Mail)
+- [ ] Check rendering on mobile
+- [ ] Verify merge tags/personalization tokens work
+- [ ] Review subject line length (< 50 chars ideal for mobile)
+
 ## Cross-Skill Integration
 
 - If `BRAND-VOICE.md` exists, match all email copy to the documented voice

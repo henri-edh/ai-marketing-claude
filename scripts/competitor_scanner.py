@@ -175,8 +175,6 @@ class CompetitorPageParser(HTMLParser):
 def fetch_page(url):
     """Fetch a webpage."""
     ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
 
     headers = {
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
@@ -187,7 +185,11 @@ def fetch_page(url):
     try:
         response = urllib.request.urlopen(req, timeout=15, context=ctx)
         return response.read().decode("utf-8", errors="replace")
-    except:
+    except ssl.SSLCertVerificationError as e:
+        print(f"Warning: SSL certificate error for {url}: {e}", file=sys.stderr)
+        return None
+    except Exception as e:
+        print(f"Warning: Could not fetch {url}: {e}", file=sys.stderr)
         return None
 
 
@@ -214,9 +216,9 @@ def scan_competitor(url):
     parser = CompetitorPageParser()
     try:
         parser.feed(html)
-    except:
+    except Exception as e:
         result["status"] = "error"
-        result["message"] = "Could not parse page"
+        result["message"] = f"Could not parse page: {e}"
         return result
 
     result["data"] = parser.get_results()
@@ -226,6 +228,10 @@ def scan_competitor(url):
         f"https://{parsed.netloc}/pricing",
         f"https://{parsed.netloc}/plans",
         f"https://{parsed.netloc}/price",
+        f"https://{parsed.netloc}/packages",
+        f"https://{parsed.netloc}/subscribe",
+        f"https://{parsed.netloc}/buy",
+        f"https://{parsed.netloc}/get-started",
     ]
 
     for pricing_url in pricing_urls:
@@ -241,8 +247,9 @@ def scan_competitor(url):
                     "pricing_mentions": pricing_data["pricing"]["pricing_mentions"],
                     "sections": pricing_data["positioning"]["key_sections"]
                 }
-            except:
-                pass
+            except Exception as e:
+                print(f"Warning: Could not parse pricing page {pricing_url}: {e}", file=sys.stderr)
+                continue
             break
     else:
         result["pricing_page"] = {"found": False}

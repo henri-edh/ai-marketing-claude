@@ -147,6 +147,29 @@ For each recommendation, estimate:
 - **Recommended Next Channel**: [specific recommendation + why]
 ```
 
+## Scoring Calibration Examples
+
+**Trust Architecture:**
+- **9/10**: About page with team photos + bios, physical address, phone number, live chat, 3+ types of social proof, security badges, SOC2/GDPR compliance noted.
+- **5/10**: About page with company description but no team, email contact only, some testimonials, basic security indicators.
+- **2/10**: No about page, no contact info beyond a form, no social proof, no security messaging.
+
+**Pricing Strategy:**
+- **9/10**: 3 tiers with clear naming, "Most Popular" highlighted, annual toggle with savings shown, FAQ below, free trial CTA, social proof near pricing.
+- **5/10**: Pricing page exists with 3 tiers but no recommended plan, no FAQ, no trial option, generic CTA.
+- **2/10**: "Contact Sales" only, no pricing transparency, or pricing page doesn't exist.
+
+**Acquisition Channels:**
+- **9/10**: Active blog (2+/week), social presence on 3+ platforms, paid ads running, referral program, partnership page, newsletter.
+- **5/10**: Blog with sporadic posts, 1-2 social platforms with occasional activity, no paid ads visible.
+- **2/10**: No blog, no social presence, no visible marketing beyond the website itself.
+
+## Accuracy Guardrails
+Follow ALL rules in `skills/ACCURACY-GUARDRAILS.md`. Key rules:
+- Revenue estimates must be labeled as estimates/assumptions unless based on user-provided data
+- Only assess channels you can actually observe — don't claim "no email marketing" if you simply can't see it
+- Pricing analysis should be based on actual pricing page content, not assumptions
+
 ## Important Rules
 - Always check pricing pages, about pages, and blog to assess strategy
 - Be specific with revenue estimates — even rough ranges are helpful
