@@ -27,7 +27,7 @@ Gather data from all previous skill runs. Check for these files in the project d
 **Primary data sources:**
 - `MARKETING-AUDIT.md` -- Overall audit results
 - `LANDING-CRO.md` -- Landing page conversion analysis
-- `SEO-AUDIT.md` -- SEO findings
+- `SEO_AUDIT.md` -- SEO findings
 - `BRAND-VOICE.md` -- Brand voice analysis
 - `COMPETITOR-REPORT.md` -- Competitor comparison data
 - `FUNNEL-ANALYSIS.md` -- Funnel analysis
@@ -39,7 +39,7 @@ Gather data from all previous skill runs. Check for these files in the project d
 **If no previous data exists:**
 1. Recommend the user run `/market audit <url>` first for the best results
 2. If the user insists on generating a report without prior audits, analyze the provided URL directly and build the data structure from scratch
-3. Use the analyze_page.py script to gather automated data: `~/.claude/skills/market/python-env.sh scripts/analyze_page.py <url>`
+3. Use the analyze_page.py script to gather automated data: `uv run python scripts/analyze_page.py <url>`
 
 ### Step 2: Build the JSON Data Structure
 The `scripts/generate_pdf_report.py` script expects a JSON file as input with this exact structure:
@@ -218,12 +218,12 @@ JSONEOF
 First, verify that `reportlab` is installed:
 ```bash
 # Use the UV-managed Python environment
-~/.claude/skills/market/python-env.sh -c "import reportlab" 2>/dev/null || uv pip install reportlab --python ~/.claude/skills/market/.venv/bin/python
+uv run python -c "import reportlab" 2>/dev/null || uv pip install reportlab
 ```
 
 **Generate the report:**
 ```bash
-~/.claude/skills/market/python-env.sh scripts/generate_pdf_report.py /tmp/report_data.json "MARKETING-REPORT-<domain>.pdf"
+uv run python scripts/generate_pdf_report.py /tmp/report_data.json "MARKETING-REPORT-<domain>.pdf"
 ```
 
 Replace `<domain>` with the target website's domain name (without protocol or www), using hyphens instead of dots. For example:
@@ -233,7 +233,7 @@ Replace `<domain>` with the target website's domain name (without protocol or ww
 **Demo mode (no arguments):**
 Running the script without arguments generates a sample report with placeholder data:
 ```bash
-~/.claude/skills/market/python-env.sh scripts/generate_pdf_report.py
+uv run python scripts/generate_pdf_report.py
 # Creates: MARKETING-REPORT-sample.pdf
 ```
 
@@ -319,7 +319,7 @@ The PDF uses a professional color palette:
 | Script produces empty PDF | Check that JSON data has all required fields |
 | Score gauge not rendering | Ensure `overall_score` is a number 0-100 |
 | Competitor table missing | Ensure `competitors` array has objects with `name`, `positioning`, `pricing`, `social_proof`, `content` fields |
-| PDF is only 1 page | Check for JSON parsing errors -- run `~/.claude/skills/market/python-env.sh -c "import json; json.load(open('/tmp/report_data.json'))"` |
+| PDF is only 1 page | Check for JSON parsing errors -- run `uv run python -c "import json; json.load(open('/tmp/report_data.json'))"` |
 | Fonts look wrong | The script uses Helvetica (built into reportlab). No custom fonts needed. |
 
 ## Integration with Other Skills

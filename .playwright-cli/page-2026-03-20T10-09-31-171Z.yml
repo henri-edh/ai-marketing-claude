@@ -1,0 +1,392 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#MainContent"
+  - generic [ref=e4]:
+    - generic [ref=e8]:
+      - button "Pause slideshow" [ref=e9] [cursor=pointer]:
+        - generic [ref=e10]:
+          - img [ref=e11]
+          - generic [ref=e13]: Pause slideshow
+      - generic [ref=e16]:
+        - link "Introducing Pro Package and Face Impact for Mevo Gen2Shop Now" [ref=e18] [cursor=pointer]:
+          - /url: /products/mevo-gen2
+        - link [ref=e20] [cursor=pointer]:
+          - /url: /collections/all
+          - text: Performance data you can trustShop Now
+    - banner [ref=e25]:
+      - generic [ref=e27]:
+        - link "FlightScope logo" [ref=e30] [cursor=pointer]:
+          - /url: /
+          - img "FlightScope logo" [ref=e31]
+        - navigation "Primary" [ref=e32]:
+          - list [ref=e33]:
+            - listitem [ref=e34]:
+              - group [ref=e35] [cursor=pointer]:
+                - generic "Launch Monitors" [ref=e36]:
+                  - text: Launch Monitors
+                  - img [ref=e37]
+            - listitem [ref=e39]:
+              - group [ref=e40] [cursor=pointer]:
+                - generic "Software" [ref=e41]:
+                  - text: Software
+                  - img [ref=e42]
+            - listitem [ref=e44]:
+              - group [ref=e45] [cursor=pointer]:
+                - generic "Simulators" [ref=e46]:
+                  - text: Simulators
+                  - img [ref=e47]
+            - listitem [ref=e49]:
+              - link "Rangefinder" [ref=e50] [cursor=pointer]:
+                - /url: /products/flightscope-i4-rangefinder
+            - listitem [ref=e51]:
+              - group [ref=e52] [cursor=pointer]:
+                - generic "Support" [ref=e53]:
+                  - text: Support
+                  - img [ref=e54]
+        - generic [ref=e58]:
+          - link "Log in" [ref=e59] [cursor=pointer]:
+            - /url: /account
+            - img [ref=e60]
+            - generic [ref=e62]: Log in
+          - link "Search" [ref=e63] [cursor=pointer]:
+            - /url: /search
+            - img [ref=e64]
+            - generic [ref=e66]: Search
+          - link "Cart" [ref=e67] [cursor=pointer]:
+            - /url: /cart
+            - generic [ref=e68]:
+              - img [ref=e69]
+              - generic [ref=e73]: Cart
+    - main [ref=e74]:
+      - generic [ref=e77]:
+        - navigation "breadcrumbs" [ref=e78]:
+          - link "Home" [ref=e79] [cursor=pointer]:
+            - /url: /
+          - text: /
+        - heading "News" [level=1] [ref=e81]
+        - generic [ref=e82]:
+          - generic [ref=e84]:
+            - 'link "Inside the Mind of an Innovator: Henri Johnson''s In-Depth Interview with Golf Today" [ref=e86] [cursor=pointer]':
+              - /url: /blogs/news/inside-the-mind-of-an-innovator-henri-johnsons-in-depth-interview-with-golf-today
+              - 'img "Inside the Mind of an Innovator: Henri Johnson''s In-Depth Interview with Golf Today" [ref=e90]'
+            - generic [ref=e92]:
+              - time [ref=e94]: Mar 18, 2026
+              - 'link "Inside the Mind of an Innovator: Henri Johnson''s In-Depth Interview with Golf Today" [ref=e95] [cursor=pointer]':
+                - /url: /blogs/news/inside-the-mind-of-an-innovator-henri-johnsons-in-depth-interview-with-golf-today
+          - generic [ref=e97]:
+            - 'link "Sean Ogle Names FlightScope Mevo Gen2 the #1 Best Outdoor Launch Monitor" [ref=e99] [cursor=pointer]':
+              - /url: /blogs/news/sean-ogle-names-flightscope-mevo-gen2-the-1-best-outdoor-launch-monitor
+              - 'img "Sean Ogle Names FlightScope Mevo Gen2 the #1 Best Outdoor Launch Monitor" [ref=e103]'
+            - generic [ref=e105]:
+              - time [ref=e107]: Feb 11, 2026
+              - 'link "Sean Ogle Names FlightScope Mevo Gen2 the #1 Best Outdoor Launch Monitor" [ref=e108] [cursor=pointer]':
+                - /url: /blogs/news/sean-ogle-names-flightscope-mevo-gen2-the-1-best-outdoor-launch-monitor
+          - generic [ref=e110]:
+            - 'link "FlightScope Mevo Gen2: A Standout Personal Launch Monitor, Upgraded" [ref=e112] [cursor=pointer]':
+              - /url: /blogs/news/flightscope-mevo-gen2-a-standout-personal-launch-monitor-upgraded
+              - 'img "FlightScope Mevo Gen2: A Standout Personal Launch Monitor, Upgraded" [ref=e116]'
+            - generic [ref=e118]:
+              - time [ref=e120]: Jan 30, 2026
+              - 'link "FlightScope Mevo Gen2: A Standout Personal Launch Monitor, Upgraded" [ref=e121] [cursor=pointer]':
+                - /url: /blogs/news/flightscope-mevo-gen2-a-standout-personal-launch-monitor-upgraded
+          - generic [ref=e123]:
+            - link "Matt Adams Sits Down with FlightScope CEO Henri Johnson at the 2026 PGA Show" [ref=e125] [cursor=pointer]:
+              - /url: /blogs/news/matt-adams-sits-down-with-flightscope-ceo-henri-johnson-at-the-2026-pga-show
+              - img "Matt Adams Sits Down with FlightScope CEO Henri Johnson at the 2026 PGA Show" [ref=e129]
+            - generic [ref=e131]:
+              - time [ref=e133]: Jan 28, 2026
+              - link "Matt Adams Sits Down with FlightScope CEO Henri Johnson at the 2026 PGA Show" [ref=e134] [cursor=pointer]:
+                - /url: /blogs/news/matt-adams-sits-down-with-flightscope-ceo-henri-johnson-at-the-2026-pga-show
+          - generic [ref=e136]:
+            - link "Inside FlightScope’s 2026 PGA Show Showcase with Golf Swing Systems" [ref=e138] [cursor=pointer]:
+              - /url: /blogs/news/golf-swing-systems-visits-flightscope-at-2026-pga-show
+              - img "Inside FlightScope’s 2026 PGA Show Showcase with Golf Swing Systems" [ref=e142]
+            - generic [ref=e144]:
+              - time [ref=e146]: Jan 26, 2026
+              - link "Inside FlightScope’s 2026 PGA Show Showcase with Golf Swing Systems" [ref=e147] [cursor=pointer]:
+                - /url: /blogs/news/golf-swing-systems-visits-flightscope-at-2026-pga-show
+          - generic [ref=e149]:
+            - link "Golf Simulator Videos Visits FlightScope at the 2026 PGA Show" [ref=e151] [cursor=pointer]:
+              - /url: /blogs/news/golf-simulator-videos-visits-flightscope-at-the-2026-pga-show
+              - img "Golf Simulator Videos Visits FlightScope at the 2026 PGA Show" [ref=e155]
+            - generic [ref=e157]:
+              - time [ref=e159]: Jan 22, 2026
+              - link "Golf Simulator Videos Visits FlightScope at the 2026 PGA Show" [ref=e160] [cursor=pointer]:
+                - /url: /blogs/news/golf-simulator-videos-visits-flightscope-at-the-2026-pga-show
+          - generic [ref=e162]:
+            - link "FlightScope to Showcase Industry-Leading Technology at 2026 PGA Show" [ref=e164] [cursor=pointer]:
+              - /url: /blogs/news/flightscope-to-showcase-industry-leading-technology-at-2026-pga-show
+              - img "FlightScope to Showcase Industry-Leading Technology at 2026 PGA Show" [ref=e168]
+            - generic [ref=e170]:
+              - time [ref=e172]: Jan 20, 2026
+              - link "FlightScope to Showcase Industry-Leading Technology at 2026 PGA Show" [ref=e173] [cursor=pointer]:
+                - /url: /blogs/news/flightscope-to-showcase-industry-leading-technology-at-2026-pga-show
+          - generic [ref=e175]:
+            - link "FlightScope Returns to the PGA Show for 22nd Consecutive Year – Leading the Charge in Golf Performance Innovation" [ref=e177] [cursor=pointer]:
+              - /url: /blogs/news/flightscope-returns-to-the-pga-show-for-22nd-consecutive-year-leading-the-charge-in-golf-performance-innovation
+              - img "FlightScope Returns to the PGA Show for 22nd Consecutive Year – Leading the Charge in Golf Performance Innovation" [ref=e181]
+            - generic [ref=e183]:
+              - time [ref=e185]: Jan 14, 2026
+              - link "FlightScope Returns to the PGA Show for 22nd Consecutive Year – Leading the Charge in Golf Performance Innovation" [ref=e186] [cursor=pointer]:
+                - /url: /blogs/news/flightscope-returns-to-the-pga-show-for-22nd-consecutive-year-leading-the-charge-in-golf-performance-innovation
+          - generic [ref=e188]:
+            - 'link "GolfBusters: “The Mevo Gen2 Just Became the Best Budget Golf Simulator We’ve Ever Tested”" [ref=e190] [cursor=pointer]':
+              - /url: /blogs/news/golfbusters-the-mevo-gen2-just-became-the-best-budget-golf-simulator-we-ve-ever-tested
+              - 'img "GolfBusters: “The Mevo Gen2 Just Became the Best Budget Golf Simulator We’ve Ever Tested”" [ref=e194]'
+            - generic [ref=e196]:
+              - time [ref=e198]: Jan 05, 2026
+              - 'link "GolfBusters: “The Mevo Gen2 Just Became the Best Budget Golf Simulator We’ve Ever Tested”" [ref=e199] [cursor=pointer]':
+                - /url: /blogs/news/golfbusters-the-mevo-gen2-just-became-the-best-budget-golf-simulator-we-ve-ever-tested
+          - generic [ref=e201]:
+            - 'link "Breaking Eighty Ranks FlightScope Mevo Gen2 as the #3 Golf Product of 2025" [ref=e203] [cursor=pointer]':
+              - /url: /blogs/news/breaking-eighty-ranks-flightscope-mevo-gen2-as-the-3-golf-product-of-2025
+              - 'img "Breaking Eighty Ranks FlightScope Mevo Gen2 as the #3 Golf Product of 2025" [ref=e207]'
+            - generic [ref=e209]:
+              - time [ref=e211]: Dec 30, 2025
+              - 'link "Breaking Eighty Ranks FlightScope Mevo Gen2 as the #3 Golf Product of 2025" [ref=e212] [cursor=pointer]':
+                - /url: /blogs/news/breaking-eighty-ranks-flightscope-mevo-gen2-as-the-3-golf-product-of-2025
+          - generic [ref=e214]:
+            - link "FlightScope Mevo Gen2 Named MyGolfSpy’s Staff Pick for Best Personal Launch Monitor of 2025" [ref=e216] [cursor=pointer]:
+              - /url: /blogs/news/flightscope-mevo-gen2-named-mygolfspy-s-staff-pick-for-best-personal-launch-monitor-of-2025
+              - img "FlightScope Mevo Gen2 Named MyGolfSpy’s Staff Pick for Best Personal Launch Monitor of 2025" [ref=e220]
+            - generic [ref=e222]:
+              - time [ref=e224]: Dec 23, 2025
+              - link "FlightScope Mevo Gen2 Named MyGolfSpy’s Staff Pick for Best Personal Launch Monitor of 2025" [ref=e225] [cursor=pointer]:
+                - /url: /blogs/news/flightscope-mevo-gen2-named-mygolfspy-s-staff-pick-for-best-personal-launch-monitor-of-2025
+          - generic [ref=e227]:
+            - link "FlightScope Enhances Mevo Gen2 with Pro Package and Face Impact Location Upgrades" [ref=e229] [cursor=pointer]:
+              - /url: /blogs/news/flightscope-enhances-mevo-gen2-with-pro-package-and-face-impact-location-upgrades
+              - img "FlightScope Enhances Mevo Gen2 with Pro Package and Face Impact Location Upgrades" [ref=e233]
+            - generic [ref=e235]:
+              - time [ref=e237]: Nov 10, 2025
+              - link "FlightScope Enhances Mevo Gen2 with Pro Package and Face Impact Location Upgrades" [ref=e238] [cursor=pointer]:
+                - /url: /blogs/news/flightscope-enhances-mevo-gen2-with-pro-package-and-face-impact-location-upgrades
+          - generic [ref=e240]:
+            - link "Handicap Golf Uses Badger AI to Fix His Driver Struggles" [ref=e242] [cursor=pointer]:
+              - /url: /blogs/news/handicap-golf-uses-badger-ai-to-fix-his-driver-struggles
+              - img "Handicap Golf Uses Badger AI to Fix His Driver Struggles" [ref=e246]
+            - generic [ref=e248]:
+              - time [ref=e250]: Nov 07, 2025
+              - link "Handicap Golf Uses Badger AI to Fix His Driver Struggles" [ref=e251] [cursor=pointer]:
+                - /url: /blogs/news/handicap-golf-uses-badger-ai-to-fix-his-driver-struggles
+          - generic [ref=e253]:
+            - link "Sports Illustrated Names FlightScope i4 “Best Rangefinder for Us Data Nerds”" [ref=e255] [cursor=pointer]:
+              - /url: /blogs/news/sports-illustrated-names-flightscope-i4-best-rangefinder-for-us-data-nerds
+              - img "Sports Illustrated Names FlightScope i4 “Best Rangefinder for Us Data Nerds”" [ref=e259]
+            - generic [ref=e261]:
+              - time [ref=e263]: Oct 15, 2025
+              - link "Sports Illustrated Names FlightScope i4 “Best Rangefinder for Us Data Nerds”" [ref=e264] [cursor=pointer]:
+                - /url: /blogs/news/sports-illustrated-names-flightscope-i4-best-rangefinder-for-us-data-nerds
+          - generic [ref=e266]:
+            - 'link "Plugged In Golf Reviews the FlightScope Mevo Gen2: “A Worthy Partner”" [ref=e268] [cursor=pointer]':
+              - /url: /blogs/news/plugged-in-golf-reviews-the-flightscope-mevo-gen2-a-worthy-partner
+              - 'img "Plugged In Golf Reviews the FlightScope Mevo Gen2: “A Worthy Partner”" [ref=e272]'
+            - generic [ref=e274]:
+              - time [ref=e276]: Sep 24, 2025
+              - 'link "Plugged In Golf Reviews the FlightScope Mevo Gen2: “A Worthy Partner”" [ref=e277] [cursor=pointer]':
+                - /url: /blogs/news/plugged-in-golf-reviews-the-flightscope-mevo-gen2-a-worthy-partner
+          - generic [ref=e279]:
+            - 'link "Mark Crossfield Reviews the FlightScope Mevo Gen2: “Exceptional Value For Money”" [ref=e281] [cursor=pointer]':
+              - /url: /blogs/news/mark-crossfield-reviews-the-flightscope-mevo-gen2-exceptional-value-for-money
+              - 'img "Mark Crossfield Reviews the FlightScope Mevo Gen2: “Exceptional Value For Money”" [ref=e285]'
+            - generic [ref=e287]:
+              - time [ref=e289]: Sep 17, 2025
+              - 'link "Mark Crossfield Reviews the FlightScope Mevo Gen2: “Exceptional Value For Money”" [ref=e290] [cursor=pointer]':
+                - /url: /blogs/news/mark-crossfield-reviews-the-flightscope-mevo-gen2-exceptional-value-for-money
+          - generic [ref=e292]:
+            - 'link "The Hackers Paradise Reviews the FlightScope Mevo Gen2: “An Easy Recommendation\"" [ref=e294] [cursor=pointer]':
+              - /url: /blogs/news/the-hackers-paradise-reviews-the-flightscope-mevo-gen2-an-easy-recommendatio
+              - 'img "The Hackers Paradise Reviews the FlightScope Mevo Gen2: “An Easy Recommendation\"" [ref=e298]'
+            - generic [ref=e300]:
+              - time [ref=e302]: Sep 15, 2025
+              - 'link "The Hackers Paradise Reviews the FlightScope Mevo Gen2: “An Easy Recommendation\"" [ref=e303] [cursor=pointer]':
+                - /url: /blogs/news/the-hackers-paradise-reviews-the-flightscope-mevo-gen2-an-easy-recommendatio
+          - generic [ref=e305]:
+            - 'link "Matt Adams Reviews the FlightScope Mevo Gen2: “It’s Going To Blow You Away”" [ref=e307] [cursor=pointer]':
+              - /url: /blogs/news/matt-adams-reviews-the-flightscope-mevo-gen2-it-s-going-to-blow-you-away
+              - 'img "Matt Adams Reviews the FlightScope Mevo Gen2: “It’s Going To Blow You Away”" [ref=e311]'
+            - generic [ref=e313]:
+              - time [ref=e315]: Sep 11, 2025
+              - 'link "Matt Adams Reviews the FlightScope Mevo Gen2: “It’s Going To Blow You Away”" [ref=e316] [cursor=pointer]':
+                - /url: /blogs/news/matt-adams-reviews-the-flightscope-mevo-gen2-it-s-going-to-blow-you-away
+          - generic [ref=e318]:
+            - 'link "Carl’s Place Review: FlightScope Mevo Gen2 is “The Most Accurate We’ve Seen Outdoors”" [ref=e320] [cursor=pointer]':
+              - /url: /blogs/news/carl-s-place-review-flightscope-mevo-gen2-is-the-most-accurate-we-ve-seen-outdoors
+              - 'img "Carl’s Place Review: FlightScope Mevo Gen2 is “The Most Accurate We’ve Seen Outdoors”" [ref=e324]'
+            - generic [ref=e326]:
+              - time [ref=e328]: Sep 02, 2025
+              - 'link "Carl’s Place Review: FlightScope Mevo Gen2 is “The Most Accurate We’ve Seen Outdoors”" [ref=e329] [cursor=pointer]':
+                - /url: /blogs/news/carl-s-place-review-flightscope-mevo-gen2-is-the-most-accurate-we-ve-seen-outdoors
+          - generic [ref=e331]:
+            - link "MyGolfSpy Names FlightScope i4 Rangefinder a Top Performer of 2025" [ref=e333] [cursor=pointer]:
+              - /url: /blogs/news/mygolfspy-names-flightscope-i4-rangefinder-a-top-performer-of-2025
+              - img "MyGolfSpy Names FlightScope i4 Rangefinder a Top Performer of 2025" [ref=e337]
+            - generic [ref=e339]:
+              - time [ref=e341]: Aug 22, 2025
+              - link "MyGolfSpy Names FlightScope i4 Rangefinder a Top Performer of 2025" [ref=e342] [cursor=pointer]:
+                - /url: /blogs/news/mygolfspy-names-flightscope-i4-rangefinder-a-top-performer-of-2025
+          - generic [ref=e344]:
+            - 'link "GolfBusters Reviews the FlightScope Mevo Gen2: “The Best Value Golf Simulator Experience”" [ref=e346] [cursor=pointer]':
+              - /url: /blogs/news/golfbusters-reviews-the-flightscope-mevo-gen2-the-best-value-golf-simulator-experience
+              - 'img "GolfBusters Reviews the FlightScope Mevo Gen2: “The Best Value Golf Simulator Experience”" [ref=e350]'
+            - generic [ref=e352]:
+              - time [ref=e354]: Aug 21, 2025
+              - 'link "GolfBusters Reviews the FlightScope Mevo Gen2: “The Best Value Golf Simulator Experience”" [ref=e355] [cursor=pointer]':
+                - /url: /blogs/news/golfbusters-reviews-the-flightscope-mevo-gen2-the-best-value-golf-simulator-experience
+        - generic [ref=e356]:
+          - generic [ref=e357]: "1"
+          - link "2" [ref=e359] [cursor=pointer]:
+            - /url: /blogs/news?page=2
+          - link "3" [ref=e361] [cursor=pointer]:
+            - /url: /blogs/news?page=3
+          - link "4" [ref=e363] [cursor=pointer]:
+            - /url: /blogs/news?page=4
+          - link "Next" [ref=e365] [cursor=pointer]:
+            - /url: /blogs/news?page=2
+            - img [ref=e366]
+            - generic [ref=e368]: Next
+      - generic [ref=e370]:
+        - heading "Shop Categories" [level=2] [ref=e372]
+        - generic [ref=e373]:
+          - link "Models FlightScope Golf Launch Monitors" [ref=e375] [cursor=pointer]:
+            - /url: /collections/sensors
+            - img "Models" [ref=e378]
+            - generic [ref=e379]: FlightScope Golf Launch Monitors
+          - link "Simulation Golf Course Simulator - Virtual Golf by FlightScope" [ref=e381] [cursor=pointer]:
+            - /url: /collections/golf-course-simulator
+            - img "Simulation" [ref=e384]
+            - generic [ref=e385]: Golf Course Simulator - Virtual Golf by FlightScope
+          - link "Software FlightScope Software Options Available" [ref=e387] [cursor=pointer]:
+            - /url: /collections/software
+            - img "Software" [ref=e390]
+            - generic [ref=e391]: FlightScope Software Options Available
+          - link "Accessory Accessories" [ref=e393] [cursor=pointer]:
+            - /url: /collections/accessory
+            - img "Accessory" [ref=e396]
+            - generic [ref=e397]: Accessories
+    - contentinfo [ref=e399]:
+      - generic [ref=e400]:
+        - generic [ref=e401]:
+          - generic [ref=e403]:
+            - heading "Sign up and save" [level=2] [ref=e404]
+            - generic [ref=e407]:
+              - paragraph [ref=e408]: Subscribe to get email only offers and be the first to know about new product drops when you join.
+              - generic [ref=e409]:
+                - generic [ref=e410] [cursor=pointer]: Enter your email
+                - generic [ref=e411] [cursor=pointer]: Subscribe
+                - generic [ref=e412]:
+                  - textbox "Enter your email" [ref=e413]
+                  - button "Subscribe" [ref=e414] [cursor=pointer]:
+                    - img [ref=e415]
+              - list [ref=e417]:
+                - listitem [ref=e418]:
+                  - link "Instagram" [ref=e419] [cursor=pointer]:
+                    - /url: https://instagram.com/flightscopegolf
+                    - img [ref=e420]
+                    - generic [ref=e423]: Instagram
+                - listitem [ref=e424]:
+                  - link "Facebook" [ref=e425] [cursor=pointer]:
+                    - /url: https://www.facebook.com/FlightScopeGolf
+                    - img [ref=e426]
+                    - generic [ref=e428]: Facebook
+                - listitem [ref=e429]:
+                  - link "YouTube" [ref=e430] [cursor=pointer]:
+                    - /url: https://www.youtube.com/@FlightScopeGolf
+                    - img [ref=e431]
+                    - generic [ref=e433]: YouTube
+                - listitem [ref=e434]:
+                  - link "X" [ref=e435] [cursor=pointer]:
+                    - /url: https://twitter.com/FlightScopeGolf
+                    - img [ref=e436]
+                    - generic [ref=e438]: X
+                - listitem [ref=e439]:
+                  - link "TikTok" [ref=e440] [cursor=pointer]:
+                    - /url: https://www.tiktok.com/@flightscopegolf
+                    - img [ref=e441]
+                    - generic [ref=e443]: TikTok
+          - generic [ref=e444]:
+            - heading "Company" [level=2] [ref=e445]
+            - list [ref=e449]:
+              - listitem [ref=e450]:
+                - link "About Us" [ref=e451] [cursor=pointer]:
+                  - /url: /pages/about
+              - listitem [ref=e452]:
+                - link "Gift Cards" [ref=e453] [cursor=pointer]:
+                  - /url: /products/flightscope-gift-cards
+              - listitem [ref=e454]:
+                - link "Reviews" [ref=e455] [cursor=pointer]:
+                  - /url: /pages/reviews
+              - listitem [ref=e456]:
+                - link "Partners" [ref=e457] [cursor=pointer]:
+                  - /url: /pages/partners
+              - listitem [ref=e458]:
+                - link "Technology" [ref=e459] [cursor=pointer]:
+                  - /url: /pages/technology
+              - listitem [ref=e460]:
+                - link "News" [ref=e461] [cursor=pointer]:
+                  - /url: /blogs/news
+              - listitem [ref=e462]:
+                - link "Blog" [ref=e463] [cursor=pointer]:
+                  - /url: /blogs/blogs
+              - listitem [ref=e464]:
+                - link "Videos" [ref=e465] [cursor=pointer]:
+                  - /url: /blogs/videos
+              - listitem [ref=e466]:
+                - link "Webinars" [ref=e467] [cursor=pointer]:
+                  - /url: /pages/webinar
+          - generic [ref=e468]:
+            - heading "Other Sports" [level=2] [ref=e469]
+            - list [ref=e473]:
+              - listitem [ref=e474]:
+                - link "Baseball" [ref=e475] [cursor=pointer]:
+                  - /url: /pages/baseball
+              - listitem [ref=e476]:
+                - link "Softball" [ref=e477] [cursor=pointer]:
+                  - /url: /pages/softball
+          - generic [ref=e478]:
+            - heading "Help and Info" [level=2] [ref=e479]
+            - list [ref=e483]:
+              - listitem [ref=e484]:
+                - link "Shipping Information" [ref=e485] [cursor=pointer]:
+                  - /url: /policies/shipping-policy
+              - listitem [ref=e486]:
+                - link "Returns" [ref=e487] [cursor=pointer]:
+                  - /url: /policies/refund-policy
+              - listitem [ref=e488]:
+                - link "FAQ" [ref=e489] [cursor=pointer]:
+                  - /url: /pages/faq
+              - listitem [ref=e490]:
+                - link "Terms of Service" [ref=e491] [cursor=pointer]:
+                  - /url: /policies/terms-of-service
+              - listitem [ref=e492]:
+                - link "Privacy Policy" [ref=e493] [cursor=pointer]:
+                  - /url: /policies/privacy-policy
+              - listitem [ref=e494]:
+                - link "Cookies Policy" [ref=e495] [cursor=pointer]:
+                  - /url: /pages/flightscope-cookies-policy
+              - listitem [ref=e496]:
+                - link "Disclaimer" [ref=e497] [cursor=pointer]:
+                  - /url: /pages/flightscope-golf-website-disclaimer
+              - listitem [ref=e498]:
+                - link "SHIELD Plan Terms & Conditions" [ref=e499] [cursor=pointer]:
+                  - /url: /pages/shield-plan-terms-conditions
+              - listitem [ref=e500]:
+                - link "Do not sell my personal information" [ref=e501] [cursor=pointer]:
+                  - /url: /pages/ccpa-opt-out
+              - listitem [ref=e502]:
+                - link "Terms of Use of flightscope.com" [ref=e503] [cursor=pointer]:
+                  - /url: /pages/terms-of-use-for-flightscope-com-website
+        - paragraph [ref=e504]: © 2026 FlightScope Golf US Store
+        - paragraph [ref=e505]:
+          - link "Powered by Shopify" [ref=e506] [cursor=pointer]:
+            - /url: https://www.shopify.com?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore
+  - iframe [ref=e508]:
+    - button "Store quality by Google dialog button" [ref=f5e1] [cursor=pointer]:
+      - button "An icon representing the top quality store on Google that users can click on to open the dialog Top Quality Store on Google" [ref=f5e3]:
+        - img "An icon representing the top quality store on Google that users can click on to open the dialog" [ref=f5e4]
+        - generic [ref=f5e5]:
+          - generic [ref=f5e6]: Top Quality Store
+          - generic [ref=f5e8]: on Google
+  - iframe [ref=e509]:
+    - link "Chat" [ref=f6e3] [cursor=pointer]:
+      - /url: "#"

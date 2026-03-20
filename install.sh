@@ -235,8 +235,8 @@ VENV_DIR="$MARKET_SKILLS_DIR/.venv"
 # Use UV venv if available, otherwise fall back to system Python
 if [ -f "$VENV_DIR/bin/python" ]; then
     exec "$VENV_DIR/bin/python" "$@"
-elif command -v uv &>/dev/null && [ -f "$VENV_DIR/bin/python" ]; then
-    exec uv run --python "$VENV_DIR/bin/python" "$@"
+elif command -v uv &>/dev/null; then
+    exec uv run python "$@"
 elif command -v python3 &>/dev/null; then
     exec python3 "$@"
 else

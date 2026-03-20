@@ -17,7 +17,7 @@ Before generating the report, check for any existing audit data from previous sk
 **Possible data sources:**
 - `MARKETING-AUDIT.md` -- from `/market audit`
 - `LANDING-CRO.md` -- from `/market landing`
-- `SEO-AUDIT.md` -- from `/market seo`
+- `SEO_AUDIT.md` -- from `/market seo`
 - `BRAND-VOICE.md` -- from `/market brand`
 - `COMPETITOR-REPORT.md` -- from `/market competitors`
 - `FUNNEL-ANALYSIS.md` -- from `/market funnel`
@@ -33,79 +33,77 @@ If no previous data exists, inform the user and offer to:
 
 ### Step 2: Calculate the Marketing Scorecard
 
-Score across 6 categories, each worth up to 100 points. The overall score is the weighted average.
+Use the same 6-category scoring model as `/market audit`. If `MARKETING-AUDIT.md` exists, treat its category scores as the source of truth and preserve them in the compiled report. Only calculate fallback scores manually when `MARKETING-AUDIT.md` is not available.
 
-#### Category 1: Website & Conversion (Weight: 25%)
-Evaluate based on landing page analysis, CRO findings, and UX assessment.
-
-| Factor | Points Available | Criteria |
-|---|---|---|
-| Page load speed | 15 | Under 2s = 15, Under 3s = 10, Under 5s = 5, Over 5s = 0 |
-| Mobile responsiveness | 15 | Fully responsive = 15, Mostly = 10, Partially = 5, Not = 0 |
-| Clear value proposition | 20 | Immediately clear = 20, Takes effort = 12, Vague = 5, Missing = 0 |
-| CTA effectiveness | 20 | Strong and clear = 20, Present but weak = 12, Unclear = 5, Missing = 0 |
-| Social proof | 15 | Multiple types = 15, Some = 10, Minimal = 5, None = 0 |
-| Form optimization | 15 | Optimized = 15, Adequate = 10, Needs work = 5, Broken = 0 |
-
-#### Category 2: SEO & Organic (Weight: 20%)
-Evaluate based on SEO audit findings.
+#### Category 1: Content & Messaging (Weight: 25%)
+Evaluate based on homepage copy, landing page messaging, value proposition clarity, brand voice, and content quality.
 
 | Factor | Points Available | Criteria |
 |---|---|---|
-| Title tags & meta descriptions | 15 | Optimized = 15, Present = 10, Partial = 5, Missing = 0 |
-| Header hierarchy (H1-H6) | 10 | Proper = 10, Mostly = 7, Needs work = 3, Missing = 0 |
-| Content quality (E-E-A-T) | 25 | Excellent = 25, Good = 17, Average = 10, Poor = 3 |
-| Technical SEO | 20 | No issues = 20, Minor issues = 13, Major issues = 7, Critical = 0 |
-| Internal linking | 15 | Strategic = 15, Present = 10, Minimal = 5, None = 0 |
-| Schema markup | 15 | Comprehensive = 15, Basic = 10, Minimal = 5, None = 0 |
+| Headline clarity | 20 | Specific and audience-targeted = 20, understandable but generic = 12, vague = 5, missing = 0 |
+| Value proposition strength | 25 | Clear differentiation and benefits = 25, partially clear = 15, weak = 7, missing = 0 |
+| Body copy persuasion | 20 | Benefits-first and objection-aware = 20, adequate = 12, feature-dump = 5, weak = 0 |
+| Social proof quality | 15 | Specific and credible = 15, some proof = 10, minimal = 5, none = 0 |
+| Content depth and authority | 20 | Expert and substantive = 20, solid = 13, thin = 6, poor = 0 |
 
-#### Category 3: Content & Messaging (Weight: 15%)
-Evaluate based on brand voice analysis and content audit.
-
-| Factor | Points Available | Criteria |
-|---|---|---|
-| Brand voice consistency | 20 | Consistent = 20, Mostly = 13, Inconsistent = 7, No voice = 0 |
-| Content quality | 25 | Expert-level = 25, Good = 17, Generic = 10, Poor = 3 |
-| Content variety | 15 | Multiple formats = 15, Some = 10, Limited = 5, Single = 0 |
-| Publishing frequency | 15 | Regular cadence = 15, Sporadic = 10, Rare = 5, None = 0 |
-| Audience targeting | 25 | Precisely targeted = 25, Somewhat = 17, Broad = 10, Off-target = 3 |
-
-#### Category 4: Social Media & Community (Weight: 15%)
-Evaluate based on social media presence and engagement.
+#### Category 2: Conversion Optimization (Weight: 20%)
+Evaluate based on CTA quality, form friction, visual hierarchy, trust signals, and funnel flow.
 
 | Factor | Points Available | Criteria |
 |---|---|---|
-| Platform presence | 15 | Right platforms, active = 15, Present but inactive = 8, Missing key = 3 |
-| Content quality | 25 | Engaging and on-brand = 25, Adequate = 15, Low quality = 7, Poor = 0 |
-| Engagement rate | 25 | Above benchmark = 25, At benchmark = 17, Below = 10, Negligible = 3 |
-| Posting consistency | 15 | Regular schedule = 15, Sporadic = 10, Rare = 5, Abandoned = 0 |
-| Community building | 20 | Active community = 20, Some engagement = 13, Broadcast only = 7, None = 0 |
+| CTA effectiveness | 25 | Specific, visible, repeated = 25, adequate = 15, weak = 7, poor = 0 |
+| Form friction | 20 | Minimal friction = 20, acceptable = 12, high friction = 5, severe = 0 |
+| Visual hierarchy | 20 | Clear eye path to conversion = 20, decent = 12, cluttered = 5, poor = 0 |
+| Trust near conversion | 20 | Proof and reassurance near CTAs = 20, some = 12, weak = 5, none = 0 |
+| Funnel flow and mobile UX | 15 | Smooth and mobile-friendly = 15, mostly solid = 10, weak = 5, broken = 0 |
 
-#### Category 5: Email & Automation (Weight: 15%)
-Evaluate based on email marketing assessment.
-
-| Factor | Points Available | Criteria |
-|---|---|---|
-| List building mechanism | 20 | Multiple opt-ins = 20, One opt-in = 13, No visible opt-in = 5 |
-| Email design & content | 20 | Professional and engaging = 20, Adequate = 13, Needs work = 7 |
-| Automation sequences | 25 | Comprehensive = 25, Basic = 15, Minimal = 8, None = 0 |
-| Segmentation | 20 | Advanced = 20, Basic = 13, None = 5 |
-| Deliverability signals | 15 | Strong = 15, Adequate = 10, Concerning = 5, Problems = 0 |
-
-#### Category 6: Paid Advertising (Weight: 10%)
-Evaluate based on ad account audit (if applicable).
+#### Category 3: SEO & Discoverability (Weight: 20%)
+Evaluate based on technical SEO, on-page optimization, internal linking, and structured data.
 
 | Factor | Points Available | Criteria |
 |---|---|---|
-| Campaign structure | 20 | Well-organized = 20, Adequate = 13, Messy = 7, None = 0 |
-| Targeting quality | 25 | Precise and layered = 25, Good = 17, Broad = 10, Wasteful = 3 |
-| Ad creative quality | 25 | Compelling and varied = 25, Adequate = 17, Weak = 10, Poor = 3 |
-| Landing page alignment | 15 | Perfect match = 15, Good = 10, Misaligned = 5, Broken = 0 |
-| Tracking & attribution | 15 | Comprehensive = 15, Basic = 10, Minimal = 5, Missing = 0 |
+| Title/meta optimization | 15 | Strong = 15, present with issues = 10, weak = 5, missing = 0 |
+| Heading hierarchy | 15 | Logical and keyword-aligned = 15, mostly good = 10, weak = 5, broken = 0 |
+| Technical SEO | 20 | Strong foundation = 20, minor issues = 13, major issues = 7, critical = 0 |
+| Internal linking | 15 | Strategic = 15, present = 10, minimal = 5, poor = 0 |
+| Structured data | 15 | Comprehensive = 15, partial = 10, minimal = 5, none = 0 |
+| Content quality / E-E-A-T | 20 | Strong = 20, good = 13, average = 7, weak = 0 |
+
+#### Category 4: Competitive Positioning (Weight: 15%)
+Evaluate based on differentiation, alternatives awareness, pricing context, and market positioning.
+
+| Factor | Points Available | Criteria |
+|---|---|---|
+| Positioning clarity | 30 | Distinct and targeted = 30, somewhat clear = 18, generic = 8, weak = 0 |
+| Alternatives awareness | 20 | Comparison content exists = 20, partial = 12, weak = 5, none = 0 |
+| Pricing clarity | 20 | Clear and contextualized = 20, partial = 12, weak = 5, absent = 0 |
+| Feature differentiation | 15 | Clear proof of superiority = 15, some differentiation = 10, weak = 4, none = 0 |
+| Market authority signals | 15 | Strong = 15, adequate = 10, weak = 4, none = 0 |
+
+#### Category 5: Brand & Trust (Weight: 10%)
+Evaluate based on trust signals, design credibility, contact transparency, and proof of legitimacy.
+
+| Factor | Points Available | Criteria |
+|---|---|---|
+| Trust signals | 35 | Multiple strong signals = 35, some = 22, weak = 10, none = 0 |
+| Design quality | 25 | Professional and consistent = 25, adequate = 15, dated = 7, poor = 0 |
+| Contact transparency | 20 | Clear and complete = 20, partial = 12, weak = 5, missing = 0 |
+| Authority signals | 20 | Strong credentials/proof = 20, some = 12, weak = 5, none = 0 |
+
+#### Category 6: Growth & Strategy (Weight: 10%)
+Evaluate based on pricing logic, acquisition channels, lifecycle marketing, and retention/growth systems.
+
+| Factor | Points Available | Criteria |
+|---|---|---|
+| Pricing strategy | 25 | Clear and compelling = 25, decent = 15, weak = 7, poor = 0 |
+| Acquisition diversity | 25 | Multiple active channels = 25, some = 15, limited = 7, none = 0 |
+| Lifecycle systems | 20 | Email/referral/retention systems present = 20, partial = 12, weak = 5, none = 0 |
+| Content and growth loops | 15 | Clear compounding channels = 15, some = 10, weak = 4, none = 0 |
+| Measurement and iteration | 15 | Evidence of tracking/optimization = 15, partial = 10, weak = 4, none = 0 |
 
 #### Overall Score Calculation
 ```
-Overall Score = (Website * 0.25) + (SEO * 0.20) + (Content * 0.15) + (Social * 0.15) + (Email * 0.15) + (Paid * 0.10)
+Overall Score = (Content & Messaging * 0.25) + (Conversion Optimization * 0.20) + (SEO & Discoverability * 0.20) + (Competitive Positioning * 0.15) + (Brand & Trust * 0.10) + (Growth & Strategy * 0.10)
 ```
 
 **Score Interpretation:**
@@ -274,12 +272,12 @@ Generate a file called `MARKETING-REPORT.md` with:
 ### Score Breakdown
 | Category | Score | Rating |
 |---|---|---|
-| Website & Conversion | X/100 | [Rating] |
-| SEO & Organic | X/100 | [Rating] |
 | Content & Messaging | X/100 | [Rating] |
-| Social Media | X/100 | [Rating] |
-| Email & Automation | X/100 | [Rating] |
-| Paid Advertising | X/100 | [Rating] |
+| Conversion Optimization | X/100 | [Rating] |
+| SEO & Discoverability | X/100 | [Rating] |
+| Competitive Positioning | X/100 | [Rating] |
+| Brand & Trust | X/100 | [Rating] |
+| Growth & Strategy | X/100 | [Rating] |
 | **Overall** | **X/100** | **[Rating]** |
 
 ### Top 3 Priority Actions
@@ -291,22 +289,22 @@ Generate a file called `MARKETING-REPORT.md` with:
 
 ## Detailed Findings
 
-### 1. Website & Conversion [X/100]
+### 1. Content & Messaging [X/100]
 [Deep-dive analysis with findings, what's working, gaps, recommendations]
 
-### 2. SEO & Organic [X/100]
+### 2. Conversion Optimization [X/100]
 [Deep-dive analysis]
 
-### 3. Content & Messaging [X/100]
+### 3. SEO & Discoverability [X/100]
 [Deep-dive analysis]
 
-### 4. Social Media [X/100]
+### 4. Competitive Positioning [X/100]
 [Deep-dive analysis]
 
-### 5. Email & Automation [X/100]
+### 5. Brand & Trust [X/100]
 [Deep-dive analysis]
 
-### 6. Paid Advertising [X/100]
+### 6. Growth & Strategy [X/100]
 [Deep-dive analysis]
 
 ---

@@ -1,0 +1,44 @@
+[     506ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://cdn.shopify.com/extensions/019ce708-66c9-7d99-ad9a-736a3dd3a28a/lb-upsell-267/assets/lb-upsell.js:0
+[     506ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://cdn.shopify.com/extensions/019ce708-66c9-7d99-ad9a-736a3dd3a28a/lb-upsell-267/assets/lb-upsell-components.esm.js:0
+[     558ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://cdn.shopify.com/extensions/019cddb6-1944-741d-bd77-deee57bb89fa/littledata-shopify-tracker-121/assets/colibrius-g.js:0
+[     558ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://cdn.shopify.com/extensions/019cddb6-1944-741d-bd77-deee57bb89fa/littledata-shopify-tracker-121/assets/colibrius-aw.js:0
+[     570ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://cdn.shopify.com/extensions/019cddb6-1944-741d-bd77-deee57bb89fa/littledata-shopify-tracker-121/assets/colibrius-f.js:0
+[     574ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://cdn.shopify.com/extensions/019cddb6-1944-741d-bd77-deee57bb89fa/littledata-shopify-tracker-121/assets/colibrius-ld.js:0
+[     574ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://cdn.shopify.com/extensions/019cfb09-7d8a-7b91-974b-d68e22148592/app-111/assets/core.min.js:0
+[     574ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://cdn.shopify.com/extensions/019ce708-66c9-7d99-ad9a-736a3dd3a28a/lb-upsell-267/assets/lb-selleasy.js:0
+[     606ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://shop.app/checkouts/internal/preloads.js?locale=en-US&shop_id=59726233732:0
+[     648ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://cdn.shopify.com/s/files/1/0597/2623/3732/files/Nunito-Regular.ttf?v=1748340536:0
+[     648ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://cdn.shopify.com/s/files/1/0597/2623/3732/files/Nunito-Bold.ttf?v=1748340615:0
+[     648ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://cdn.shopify.com/extensions/019ce708-66c9-7d99-ad9a-736a3dd3a28a/lb-upsell-267/assets/lb-utils.js:0
+[     693ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://shop.app/pay/session?v=1&token=20b1e023-d498-4433-abb4-c52a0271f82b&shop_id=59726233732:0
+[     694ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://api.config-security.com/event:0
+[     739ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://api.config-security.com/first?host=flightscope-us.myshopify.com&plat=SHOPIFY:0
+[     739ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://monorail-edge.shopifysvc.com/unstable/produce_batch:0
+[     835ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://flightscope.com/cdn/wpm/s2f2288a8w2fafd01bp23157a73mcb0adebfm.js:0
+[     835ms] TypeError: Cannot read properties of undefined (reading 'createShopifyExtend')
+    at https://flightscope.com/web-pixels@2f2288a8w2fafd01bp23157a73mcb0adebf/custom/web-pixel-shopify-custom-pixel@0450/sandbox/modern/blogs/news:12:29
+[     836ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://flightscope.com/cdn/wpm/s2f2288a8w2fafd01bp23157a73mcb0adebfm.js:0
+[     836ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://flightscope.com/cdn/wpm/s2f2288a8w2fafd01bp23157a73mcb0adebfm.js:0
+[     837ms] TypeError: Cannot read properties of undefined (reading 'createShopifyExtend')
+    at https://flightscope.com/web-pixels@2f2288a8w2fafd01bp23157a73mcb0adebf/custom/web-pixel-24051844@1/sandbox/modern/blogs/news:13:29
+[     838ms] TypeError: Cannot read properties of undefined (reading 'createShopifyExtend')
+    at https://flightscope.com/web-pixels@2f2288a8w2fafd01bp23157a73mcb0adebf/custom/web-pixel-73990276@1/sandbox/modern/blogs/news:12:29
+[     965ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MRegular.woff2:0
+[     976ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://api.config-security.com/event:0
+[     977ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://api.config-security.com/first?host=flightscope-us.myshopify.com&plat=SHOPIFY:0
+[    1222ms] [WARNING] Klaviyo tracking is disabled. To enable, set the cookie "__kla_off" to false. {is_robot: true, __kla_off: } @ https://static-tracking.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/fender_analytics.e5aba8b3a52dc623782c.js?cb=2:0
+[    1504ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://otlp-http-production.shopifysvc.com/v1/metrics:0
+[    2068ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://monorail-edge.shopifysvc.com/v1/produce:0
+[    3296ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://otlp-http-production.shopifysvc.com/v1/metrics:0
+[    3296ms] [ERROR] Suppressed error while exporting metrics: TypeError: Failed to fetch
+    at window2.fetch (https://flightscope.com/cdn/shopifycloud/storefront/assets/shop_events_listener-3da45d37.js:1:7564)
+    at https://flightscope.com/cdn/wpm/b2f2288a8w2fafd01bp23157a73mcb0adebfm.js:1:72564
+    at bi.exportTo (https://flightscope.com/cdn/shopifycloud/portable-wallets/latest/portable-wallets.en.js:1:20081)
+    at bi.exportMetrics (https://flightscope.com/cdn/shopifycloud/portable-wallets/latest/portable-wallets.en.js:1:19735)
+    at Ei.exportMetrics (https://flightscope.com/cdn/shopifycloud/portable-wallets/latest/portable-wallets.en.js:1:20992)
+    at pi.exportMetrics (https://flightscope.com/cdn/shopifycloud/portable-wallets/latest/portable-wallets.en.js:1:17171)
+    at Ha (https://flightscope.com/cdn/shopifycloud/portable-wallets/latest/portable-wallets.en.js:1:60652)
+    at https://flightscope.com/cdn/shopifycloud/portable-wallets/latest/portable-wallets.en.js:1:60575 undefined @ https://flightscope.com/cdn/shopifycloud/portable-wallets/latest/portable-wallets.en.js:0
+[    5232ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://flightscope.com/blogs/x:0
+[    5348ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://cdn.shopify.com/proxy/13b7a4c63f5c55f01dfce03cf203c2661ea734fc2131642659a5afa79f8a4c29/s3-us-west-2.amazonaws.com/jsstore/a/JKRHXEZ8/reids.js?shop=flightscope-us.myshopify.com&sp-cache-control=cHVibGljLCBtYXgtYWdlPTkwMA:0
+[    7590ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://fonts.shopifycdn.com/nunito/nunito_n4.fc49103dc396b42cae9460289072d384b6c6eb63.woff2?h1=ZmxpZ2h0c2NvcGUuY29t&hmac=353587d75cf29040c18b6922c7487c4a8216073fec4179f6d744d6f933d0a013:0

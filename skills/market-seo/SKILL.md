@@ -12,6 +12,30 @@ Perform a comprehensive SEO audit of a webpage or website, covering on-page SEO,
 
 ## How to Execute
 
+### Fresh Run Requirement
+
+`/market seo` must be a fresh audit by default.
+
+- Do NOT read prior audit markdown files as input to the SEO analysis.
+- Do NOT reuse conclusions from `/market audit`, `/market landing`, or previous SEO audits.
+- Use only evidence gathered in the current run: script output, fetched pages, browser/devtools verification, and external validation tools explicitly used during this session.
+- Prior reports may be used only after the fresh audit is complete, and only for comparison if the user explicitly asks for a compare/delta view.
+
+### Evidence-First Reporting Contract
+
+Before writing the report, assemble the findings from the current run into an evidence set. Every finding in the final audit must include:
+
+- **Confidence**: `Confirmed`, `Likely`, or `Needs Verification`
+- **Evidence source**: `static HTML`, `browser-rendered DOM`, `manual validation`, or `external tool`
+- **Page checked**: the exact URL the finding came from
+- **Evidence**: a short factual observation, not an interpretation
+
+Rules:
+- **Critical** recommendations may only be based on **Confirmed** findings.
+- Do not make article-level conclusions unless you analyzed at least one actual article URL.
+- Do not make product-page conclusions unless you analyzed at least one product URL.
+- If the evidence only covers the homepage or a listing page, scope the claim to that page only.
+
 ### Important: Verify Automated Analysis Results
 
 Automated SEO analysis tools have limitations and can produce **false positives**. Always verify findings before including them in your audit:
@@ -35,7 +59,15 @@ Automated SEO analysis tools have limitations and can produce **false positives*
 Use the Python analysis script to gather baseline data:
 
 ```bash
-~/.claude/skills/market/python-env.sh scripts/analyze_page.py <url>
+uv run python scripts/analyze_page.py <url>
+```
+
+For a site-level SEO audit, collect representative page evidence first:
+
+```bash
+uv run python scripts/collect_seo_evidence.py <url> seo_evidence.json
+# Use a deeper representative sample when the site has multiple templates or rich blog/product coverage
+uv run python scripts/collect_seo_evidence.py <url> seo_evidence.json --profile deep
 ```
 
 This script extracts:
@@ -57,6 +89,47 @@ This script extracts:
 - **URL analysis** (HTTPS status, www status)
 
 Capture the JSON output and use it as the foundation for the manual analysis. The script output is the SINGLE SOURCE OF TRUTH for what exists on the page. Do not contradict it with assumptions.
+
+For site-level audits, `collect_seo_evidence.py` should be the primary source of truth for which page types were actually analyzed. Use it to determine whether you have evidence for homepage, product, collection, comparison, blog index, article, about/trust, and policy conclusions.
+
+### Step 1B: Browser-Rendered Verification for Critical Findings
+
+After static evidence collection, verify JS-sensitive findings in a rendered browser:
+
+```bash
+export BROWSERLESS_TOKEN=your_token_here
+uv run python scripts/verify_rendered_seo.py seo_evidence.json rendered_verification.json
+# Explicit local fallback if Browserless is unavailable
+uv run python scripts/verify_rendered_seo.py seo_evidence.json rendered_verification.json --provider local-playwright-cli
+```
+
+Provider notes:
+- Default provider: `browserless`
+- Local fallback provider: `local-playwright-cli`
+- Optional env vars for Browserless: `BROWSERLESS_BASE_URL`, `BROWSERLESS_PROXY`, `BROWSERLESS_PROXY_COUNTRY`
+
+Use rendered verification for:
+- structured data on modern JS-heavy sites
+- rendered title, canonical, and meta description checks
+- confirmation of actual article-page and product-page schema
+
+Rules:
+- If browser-rendered verification succeeds, use it as the source for **Confirmed** JS-sensitive findings.
+- If browser verification is unavailable or incomplete, downgrade the finding to **Needs Verification**.
+- Do not promote static-only schema conclusions to **Confirmed** on Shopify or similarly JS-heavy stacks.
+
+### Step 1C: Generate the Final Report from Artifacts
+
+Do not hand-write the final markdown report from scratch. Generate it from the evidence artifacts:
+
+```bash
+uv run python scripts/generate_seo_audit_report.py seo_evidence.json rendered_verification.json SEO_AUDIT.md
+```
+
+Rules:
+- `SEO_AUDIT.md` must be derived from `seo_evidence.json` and `rendered_verification.json` when available.
+- If rendered verification was not produced, generate the report from `seo_evidence.json` and preserve the lower confidence labels.
+- Any manual additions to the report must be explicitly marked as such and must not contradict the evidence artifacts.
 
 ### Step 2: On-Page SEO Checklist
 Evaluate each element and score it as Pass, Needs Work, or Fail.
@@ -389,7 +462,7 @@ Scoring: High volume + Low competition + High business value = Highest priority
 
 ## Output Format
 
-Generate a file called `SEO-AUDIT.md` with:
+Generate a file called `SEO_AUDIT.md` with:
 
 ```markdown
 # SEO Content Audit
@@ -399,6 +472,14 @@ Generate a file called `SEO-AUDIT.md` with:
 ---
 
 ## SEO Health Score: [X/100]
+
+---
+
+## Methodology & Limitations
+- Fresh audit performed from current-run evidence only
+- Pages analyzed: [list exact URLs]
+- Static HTML analysis may miss JavaScript-rendered content
+- Structured data and performance findings requiring rendering/tools are labeled with confidence levels
 
 ---
 
@@ -504,10 +585,11 @@ Generate a file called `SEO-AUDIT.md` with:
 - Use the automated script data as a starting point, but add expert analysis on top. The script finds the data; the skill interprets what it means.
 - **Verify critical findings before including them**. Automated tools can produce false positives. Check title tags, headings, and structured data manually using "View Source" or browser DevTools.
 - Prioritize recommendations by effort-to-impact ratio. A title tag change takes 5 minutes but can impact every search impression. A full content rewrite takes weeks.
-- If the user has run `/market audit` or `/market landing` previously, cross-reference those findings with the SEO audit for a more complete picture.
 - **Never claim a page returns 404 without testing it**. Use tools like curl or try accessing the URL directly in a browser before reporting it as broken.
 - **For structured data, recommend Google's Rich Results Test** as the definitive source. The automated script may miss schemas implemented via JavaScript or in formats other than JSON-LD.
 - **Be cautious about navigation/header element analysis**. Footer labels using H2 for visual styling is common and not necessarily an SEO issue if they're not used for content structure.
+- Keep the report page-scoped. If only the homepage was analyzed, do not generalize the finding to the entire site.
+- For site-level audits, analyze representative URLs by page type before making site-wide statements.
 
 ## ACCURACY GUARDRAILS — MANDATORY
 
@@ -552,3 +634,8 @@ These rules prevent false positives that undermine report credibility. Follow th
   - **Likely** — strong indicators but not directly verifiable from static HTML
   - **Needs Verification** — could be a scraper limitation; manual check required
 - All items in the "Critical (Fix Immediately)" section MUST be **Confirmed** findings only. Never escalate **Needs Verification** items to Critical priority.
+
+### 9. Fresh-audit isolation
+- Treat previous report files in the workspace as potentially stale. Do not use them as evidence for `/market seo`.
+- If a previous report exists, ignore it unless the user explicitly asks for a comparison against the new audit.
+- If the user asks for a fresh audit, state findings only from the current run.

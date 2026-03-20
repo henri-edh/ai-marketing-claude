@@ -4,7 +4,10 @@
       "Bash(python3:*)",
       "WebFetch(domain:www.flightscope.com)",
       "mcp__claude_ai_Firecrawl_MCP_Server__firecrawl_scrape",
-      "Bash(~/.claude/skills/market/python-env.sh:*)"
+      "Bash(~/.claude/skills/market/python-env.sh:*)",
+      "mcp__plugin_context-mode_context-mode__ctx_batch_execute",
+      "Read(//Users/henrijohnson/.codex/skills/playwright/**)",
+      "Read(//Users/henrijohnson/.claude/skills/**)"
     ]
   }
 }

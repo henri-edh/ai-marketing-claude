@@ -144,8 +144,6 @@ class ImprovedMarketingParser(HTMLParser):
             self._in_link = True
             self._current_link_attrs = attrs_dict
             self._link_text_parts = []
-            # Check for Microdata itemtype/itemprop on the link itself
-            self._check_microdata_attrs(attrs_dict)
             self._check_rdfa_attrs(attrs_dict)
 
         # Handle images
@@ -156,7 +154,6 @@ class ImprovedMarketingParser(HTMLParser):
         elif tag == "button":
             self._in_button = True
             self._button_text_parts = []
-            self._check_microdata_attrs(attrs_dict)
 
         # Handle forms
         elif tag == "form":
@@ -178,13 +175,24 @@ class ImprovedMarketingParser(HTMLParser):
 
         # Track Microdata itemscope
         if "itemscope" in attrs_dict:
+            parent_item = self._itemscope_stack[-1] if self._itemscope_stack else None
             item = {
+                "tag": tag,
                 "type": attrs_dict.get("itemtype", ""),
                 "id": attrs_dict.get("itemid", ""),
+                "itemprop": attrs_dict.get("itemprop", ""),
                 "props": defaultdict(list)
             }
             self._itemscope_stack.append(item)
             self._current_item = item
+
+            # Preserve parent-child microdata relationships in a lightweight form.
+            if parent_item and attrs_dict.get("itemprop"):
+                prop_name = attrs_dict["itemprop"]
+                child_value = attrs_dict.get("itemid") or attrs_dict.get("itemtype") or attrs_dict.get("href") or attrs_dict.get("src") or tag
+                parent_item["props"][prop_name].append(child_value)
+
+        self._check_microdata_attrs(tag, attrs_dict)
 
         # Track RDFa
         if any(k in attrs_dict for k in ["vocab", "typeof", "property", "prefix"]):
@@ -266,13 +274,21 @@ class ImprovedMarketingParser(HTMLParser):
             self._in_script = False
             self._script_content = []
 
+        # Handle Microdata property end
+        if self._itemprop_stack and self._itemprop_stack[-1]["tag"] == tag:
+            prop_capture = self._itemprop_stack.pop()
+            if prop_capture["target_item"] is not None and not prop_capture["has_attr_value"]:
+                text_value = "".join(prop_capture["text_parts"]).strip()
+                if text_value:
+                    prop_capture["target_item"]["props"][prop_capture["prop_name"]].append(text_value)
+
         # Handle Microdata itemscope end
-        if self._itemscope_stack and self._itemscope_stack[-1].get("_closed"):
+        if self._itemscope_stack and self._itemscope_stack[-1]["tag"] == tag:
             completed_item = self._itemscope_stack.pop()
             if completed_item.get("type") or completed_item.get("props"):
+                completed_item["props"] = dict(completed_item["props"])
                 self.microdata_items.append(completed_item)
-            if self._itemscope_stack:
-                self._current_item = self._itemscope_stack[-1]
+            self._current_item = self._itemscope_stack[-1] if self._itemscope_stack else None
 
     def handle_data(self, data):
         # Skip if inside SVG
@@ -301,6 +317,10 @@ class ImprovedMarketingParser(HTMLParser):
 
         # Capture all text content
         self._all_text.append(data)
+
+        # Capture Microdata text properties
+        for prop_capture in self._itemprop_stack:
+            prop_capture["text_parts"].append(data)
 
     def _process_meta_tag(self, attrs):
         """Process meta tags for SEO and social media."""
@@ -346,9 +366,13 @@ class ImprovedMarketingParser(HTMLParser):
 
     def _process_image(self, attrs):
         """Process image tags for alt text analysis."""
+        alt_value = attrs.get("alt", "")
+        if alt_value is None:
+            alt_value = ""
+
         self.images.append({
             "src": attrs.get("src", ""),
-            "alt": attrs.get("alt", ""),
+            "alt": alt_value,
             "has_alt": "alt" in attrs,
             "loading": attrs.get("loading", ""),
             "width": attrs.get("width", ""),
@@ -473,13 +497,37 @@ class ImprovedMarketingParser(HTMLParser):
                 self.social_links.append({"platform": platform, "url": href})
                 break
 
-    def _check_microdata_attrs(self, attrs):
+    def _check_microdata_attrs(self, tag, attrs):
         """Check for Microdata attributes."""
-        if self._current_item and "itemprop" in attrs:
-            prop_name = attrs["itemprop"]
-            if prop_name:
-                # This is handled when the text is captured
-                pass
+        if not self._current_item or "itemprop" not in attrs:
+            return
+
+        prop_name = attrs["itemprop"]
+        if not prop_name:
+            return
+
+        attr_value = (
+            attrs.get("content")
+            or attrs.get("href")
+            or attrs.get("src")
+            or attrs.get("datetime")
+            or attrs.get("title")
+            or attrs.get("aria-label")
+        )
+
+        has_attr_value = bool(attr_value)
+        if has_attr_value:
+            self._current_item["props"][prop_name].append(attr_value)
+
+        # For non-void tags, keep collecting text content until the element closes.
+        if tag not in {"meta", "link", "img", "source"}:
+            self._itemprop_stack.append({
+                "tag": tag,
+                "prop_name": prop_name,
+                "target_item": self._current_item,
+                "has_attr_value": has_attr_value,
+                "text_parts": []
+            })
 
     def _check_rdfa_attrs(self, attrs):
         """Check for RDFa attributes."""
@@ -488,10 +536,70 @@ class ImprovedMarketingParser(HTMLParser):
                 "vocab": attrs.get("vocab", ""),
                 "typeof": attrs.get("typeof", ""),
                 "property": attrs.get("property", ""),
-                "content": attrs.get("content", "")
+                "content": attrs.get("content", ""),
+                "resource": attrs.get("resource", ""),
+                "href": attrs.get("href", ""),
+                "src": attrs.get("src", "")
             }
             if any(rdfa_info.values()):
                 self.rdfa_data.append(rdfa_info)
+
+    def _extract_json_ld_types(self, payload):
+        """Recursively extract schema types from JSON-LD payloads."""
+        schema_types = []
+
+        if isinstance(payload, list):
+            for item in payload:
+                schema_types.extend(self._extract_json_ld_types(item))
+            return schema_types
+
+        if not isinstance(payload, dict):
+            return schema_types
+
+        schema_type = payload.get("@type", "")
+        if isinstance(schema_type, list):
+            schema_types.extend([value for value in schema_type if isinstance(value, str) and value])
+        elif isinstance(schema_type, str) and schema_type:
+            schema_types.append(schema_type)
+
+        if "@graph" in payload:
+            schema_types.extend(self._extract_json_ld_types(payload["@graph"]))
+
+        return schema_types
+
+    def _summarize_json_ld_item(self, payload):
+        """Return a compact summary of a JSON-LD item."""
+        if not isinstance(payload, dict):
+            return None
+
+        types = self._extract_json_ld_types(payload)
+        if not types and "@graph" not in payload:
+            return None
+
+        summary = {
+            "types": sorted(set(types)),
+            "name": payload.get("name", ""),
+            "headline": payload.get("headline", ""),
+            "url": payload.get("url", ""),
+            "image": payload.get("image", ""),
+            "author": ""
+        }
+
+        author = payload.get("author", "")
+        if isinstance(author, dict):
+            summary["author"] = author.get("name", "") or author.get("@id", "")
+        elif isinstance(author, list):
+            author_names = []
+            for item in author:
+                if isinstance(item, dict):
+                    author_names.append(item.get("name", "") or item.get("@id", ""))
+                elif isinstance(item, str):
+                    author_names.append(item)
+            summary["author"] = ", ".join([name for name in author_names if name])
+        elif isinstance(author, str):
+            summary["author"] = author
+
+        return summary
 
     def get_full_text(self):
         """Get all text content from the page."""
@@ -514,25 +622,41 @@ class ImprovedMarketingParser(HTMLParser):
 
         # Analyze structured data
         schema_types = []
+        json_ld_items = []
         for schema in self.json_ld_schema:
-            if isinstance(schema, dict):
-                schema_type = schema.get("@type", "")
-                if schema_type:
-                    schema_types.append(schema_type)
-                # Also check for nested graphs
-                if "@graph" in schema:
-                    for item in schema["@graph"]:
-                        if isinstance(item, dict) and "@type" in item:
-                            schema_types.append(item["@type"])
+            schema_types.extend(self._extract_json_ld_types(schema))
+            summary = self._summarize_json_ld_item(schema)
+            if summary:
+                json_ld_items.append(summary)
 
         # Get unique schema types
-        schema_types = list(set(schema_types))
+        schema_types = sorted(set(schema_types))
 
         # Analyze Microdata
         microdata_types = []
+        microdata_items = []
         for item in self.microdata_items:
             if item.get("type"):
                 microdata_types.append(item["type"])
+            microdata_items.append({
+                "type": item.get("type", ""),
+                "id": item.get("id", ""),
+                "itemprop": item.get("itemprop", ""),
+                "props": item.get("props", {})
+            })
+
+        microdata_types = sorted(set(microdata_types))
+
+        rdfa_types = sorted(set(
+            value
+            for entry in self.rdfa_data
+            for value in (
+                entry.get("typeof", "").split()
+                if isinstance(entry.get("typeof"), str) and entry.get("typeof")
+                else []
+            )
+            if value
+        ))
 
         # Count structured data
         total_schema = len(schema_types) + len(microdata_types) + len(self.rdfa_data)
@@ -593,9 +717,18 @@ class ImprovedMarketingParser(HTMLParser):
                 "tools_count": len(tracking),
                 "json_ld_schema_types": schema_types,
                 "json_ld_count": len(schema_types),
+                "json_ld_items": json_ld_items,
                 "microdata_types": microdata_types,
                 "microdata_count": len(microdata_types),
+                "microdata_items": microdata_items,
+                "rdfa_types": rdfa_types,
+                "rdfa_items": self.rdfa_data,
                 "rdfa_count": len(self.rdfa_data),
+                "schema_summary": {
+                    "json_ld_types": schema_types,
+                    "microdata_types": microdata_types,
+                    "rdfa_types": rdfa_types
+                },
                 "total_schema_count": total_schema
             },
             "technical": {
@@ -614,8 +747,6 @@ def check_redirects(url):
 
     try:
         ctx = ssl.create_default_context()
-        ctx.check_hostname = False
-        ctx.verify_mode = ssl.CERT_NONE
 
         headers = {
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -658,8 +789,6 @@ def check_redirects(url):
 def fetch_page(url):
     """Fetch a webpage and return its HTML content."""
     ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
 
     headers = {
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -671,9 +800,9 @@ def fetch_page(url):
     try:
         response = urllib.request.urlopen(req, timeout=15, context=ctx)
         return response.read().decode("utf-8", errors="replace")
-    except urllib.error.HTTPError as e:
+    except urllib.error.HTTPError:
         return None
-    except Exception as e:
+    except (urllib.error.URLError, ssl.SSLError, TimeoutError):
         return None
 
 
@@ -700,8 +829,6 @@ def fetch_sitemap(url):
     sitemap_url = f"{parsed.scheme}://{parsed.netloc}/sitemap.xml"
     try:
         ctx = ssl.create_default_context()
-        ctx.check_hostname = False
-        ctx.verify_mode = ssl.CERT_NONE
         req = urllib.request.Request(sitemap_url, headers={"User-Agent": "MarketingBot/1.0"})
         response = urllib.request.urlopen(req, timeout=10, context=ctx)
         content = response.read().decode("utf-8", errors="replace")
@@ -710,7 +837,7 @@ def fetch_sitemap(url):
         # Check for sitemap index
         has_sitemap_index = "<sitemapindex" in content.lower()
         return {"exists": True, "url_count": url_count, "is_index": has_sitemap_index}
-    except:
+    except (urllib.error.HTTPError, urllib.error.URLError, ssl.SSLError, TimeoutError):
         return {"exists": False, "url_count": 0}
 
 
@@ -844,8 +971,8 @@ def main():
     if len(sys.argv) < 2:
         # Demo mode
         print(json.dumps({
-            "usage": "~/.claude/skills/market/python-env.sh scripts/analyze_page.py <url>",
-            "example": "~/.claude/skills/market/python-env.sh scripts/analyze_page.py https://flightscope.com",
+            "usage": "uv run python scripts/analyze_page.py <url>",
+            "example": "uv run python scripts/analyze_page.py https://flightscope.com",
             "description": "Analyzes a webpage for marketing effectiveness with accurate HTML parsing"
         }, indent=2))
         return

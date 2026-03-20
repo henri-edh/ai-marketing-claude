@@ -35,7 +35,7 @@ Collect these details from the user (ask if not provided):
 | File | What to Extract | Use In |
 |---|---|---|
 | `MARKETING-AUDIT.md` | Overall score, category scores, top findings, quick wins | Sections 2 (Executive Summary), 3 (Situation Analysis), 8 (ROI Projection) |
-| `SEO-AUDIT.md` | SEO health score, title/meta issues, content gaps | Section 3 (Situation Analysis — SEO opportunities) |
+| `SEO_AUDIT.md` | SEO health score, title/meta issues, content gaps | Section 3 (Situation Analysis — SEO opportunities) |
 | `COMPETITOR-REPORT.md` | Competitor names, positioning gaps, feature comparison | Section 3 (Competitive Landscape), Section 4 (Strategy differentiation) |
 | `LANDING-CRO.md` | CRO score, conversion rate estimates, quick wins | Section 3 (Conversion opportunities), Section 8 (ROI — conversion improvement) |
 | `BRAND-VOICE.md` | Voice profile, consistency score | Section 3 (Content assessment) |

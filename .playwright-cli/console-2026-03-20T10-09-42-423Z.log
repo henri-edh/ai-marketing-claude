@@ -1,0 +1,26 @@
+[    1893ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://shop.app/checkouts/internal/preloads.js?locale=en-US&shop_id=59726233732:0
+[    1931ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://shop.app/pay/session?v=1&token=f7ef85ef-b0f0-4834-b5d8-74dd417681f5&shop_id=59726233732:0
+[    1970ms] [WARNING] Multiple versions of Shopify.trackingConsent or Shopify.customerPrivacy loaded -  Version 'v0.1' is already loaded but replacing with version 'v0.1'.
+
+This could result in unexpected behavior. See documentation https://shopify.dev/docs/api/customer-privacy for more information. @ https://flightscope.com/cdn/shopifycloud/consent-tracking-api/v0.1/consent-tracking-api.js:0
+[    2007ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://api.config-security.com/event:0
+[    2014ms] [WARNING] Klaviyo tracking is disabled. To enable, set the cookie "__kla_off" to false. {is_robot: true, __kla_off: } @ https://static-tracking.klaviyo.com/onsite/js/build-preview/commit-0dfc339d6b9ba589efdf66556a5767dfb099e072/fender_analytics.e5aba8b3a52dc623782c.js?cb=2:0
+[    2022ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://api.config-security.com/first?host=flightscope-us.myshopify.com&plat=SHOPIFY:0
+[    2022ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://monorail-edge.shopifysvc.com/unstable/produce_batch:0
+[    2184ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://api.config-security.com/event:0
+[    2185ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://api.config-security.com/first?host=flightscope-us.myshopify.com&plat=SHOPIFY:0
+[    2258ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://api.config-security.com/event:0
+[    2387ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://flightscope.com/cdn/wpm/s2f2288a8w2fafd01bp23157a73mcb0adebfm.js:0
+[    2388ms] TypeError: Cannot read properties of undefined (reading 'createShopifyExtend')
+    at https://flightscope.com/web-pixels@2f2288a8w2fafd01bp23157a73mcb0adebf/custom/web-pixel-73990276@1/sandbox/modern/blogs/news/flightscope-launches-new-mevo-pro-package:12:29
+[    2392ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://flightscope.com/cdn/wpm/s2f2288a8w2fafd01bp23157a73mcb0adebfm.js:0
+[    2392ms] TypeError: Cannot read properties of undefined (reading 'createShopifyExtend')
+    at https://flightscope.com/web-pixels@2f2288a8w2fafd01bp23157a73mcb0adebf/custom/web-pixel-shopify-custom-pixel@0450/sandbox/modern/blogs/news/flightscope-launches-new-mevo-pro-package:12:29
+[    2460ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://api.config-security.com/first?host=flightscope-us.myshopify.com&plat=SHOPIFY:0
+[    2387ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://flightscope.com/cdn/wpm/s2f2288a8w2fafd01bp23157a73mcb0adebfm.js:0
+[    2392ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://flightscope.com/cdn/wpm/s2f2288a8w2fafd01bp23157a73mcb0adebfm.js:0
+[    2585ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://flightscope.com/cdn/wpm/s2f2288a8w2fafd01bp23157a73mcb0adebfm.js:0
+[    2586ms] TypeError: Cannot read properties of undefined (reading 'createShopifyExtend')
+    at https://flightscope.com/web-pixels@2f2288a8w2fafd01bp23157a73mcb0adebf/custom/web-pixel-24051844@1/sandbox/modern/blogs/news/flightscope-launches-new-mevo-pro-package:13:29
+[    2596ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://otlp-http-production.shopifysvc.com/v1/metrics:0
+[    2620ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ https://api.config-security.com/event:0

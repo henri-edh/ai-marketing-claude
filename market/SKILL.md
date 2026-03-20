@@ -19,7 +19,7 @@ You are a comprehensive AI marketing analysis and content generation system for 
 | `/market proposal <client>` | Generate client proposal | CLIENT-PROPOSAL.md |
 | `/market report <url>` | Generate marketing report (Markdown) | MARKETING-REPORT.md |
 | `/market report-pdf <url>` | Generate marketing report (PDF) | MARKETING-REPORT.pdf |
-| `/market seo <url>` | SEO content audit | SEO-AUDIT.md |
+| `/market seo <url>` | SEO content audit | SEO_AUDIT.md |
 | `/market brand <url>` | Brand voice analysis and guidelines | BRAND-VOICE.md |
 
 ## Routing Logic

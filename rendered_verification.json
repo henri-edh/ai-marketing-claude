@@ -1,0 +1,958 @@
+{
+  "url": "https://www.flightscope.com",
+  "status": "success",
+  "message": "",
+  "static_summary": {
+    "analyzed_urls": [
+      "https://flightscope.com/",
+      "https://flightscope.com/products/mevo-gen2",
+      "https://flightscope.com/products/mevo-plus",
+      "https://flightscope.com/products/flightscope-x3c",
+      "https://flightscope.com/products/mevo-gen2-with-thestack",
+      "https://flightscope.com/collections/all",
+      "https://flightscope.com/collections/sensors",
+      "https://flightscope.com/blogs/news/flightscope-mevo-vs-trackman-4-review",
+      "https://flightscope.com/blogs/news/mevo-vs-skytrak-review-by-golfsimulatorvideos",
+      "https://flightscope.com/blogs/news",
+      "https://flightscope.com/blogs/blogs",
+      "https://flightscope.com/blogs/news/how-fast-should-you-swing-your-driver",
+      "https://flightscope.com/blogs/news/flightscope-launches-new-mevo-pro-package",
+      "https://flightscope.com/blogs/news/using-the-flightscope-mevo-for-simulation",
+      "https://flightscope.com/blogs/news/flightscope-announces-mevo-trade-in-program",
+      "https://flightscope.com/blogs/news/flightscope-mevo-2023-launch-monitor-review",
+      "https://flightscope.com/blogs/news/flightscope-a-game-changer-in-the-world-of-golf",
+      "https://flightscope.com/pages/about",
+      "https://flightscope.com/pages/contact",
+      "https://flightscope.com/policies/privacy-policy",
+      "https://flightscope.com/policies/shipping-policy"
+    ],
+    "by_type": {
+      "homepage": [
+        "https://flightscope.com/"
+      ],
+      "product": [
+        "https://flightscope.com/products/mevo-gen2",
+        "https://flightscope.com/products/mevo-plus",
+        "https://flightscope.com/products/flightscope-x3c",
+        "https://flightscope.com/products/mevo-gen2-with-thestack"
+      ],
+      "collection": [
+        "https://flightscope.com/collections/all",
+        "https://flightscope.com/collections/sensors"
+      ],
+      "comparison": [
+        "https://flightscope.com/blogs/news/flightscope-mevo-vs-trackman-4-review",
+        "https://flightscope.com/blogs/news/mevo-vs-skytrak-review-by-golfsimulatorvideos"
+      ],
+      "blog_index": [
+        "https://flightscope.com/blogs/news",
+        "https://flightscope.com/blogs/blogs"
+      ],
+      "article": [
+        "https://flightscope.com/blogs/news/how-fast-should-you-swing-your-driver",
+        "https://flightscope.com/blogs/news/flightscope-launches-new-mevo-pro-package",
+        "https://flightscope.com/blogs/news/using-the-flightscope-mevo-for-simulation",
+        "https://flightscope.com/blogs/news/flightscope-announces-mevo-trade-in-program",
+        "https://flightscope.com/blogs/news/flightscope-mevo-2023-launch-monitor-review",
+        "https://flightscope.com/blogs/news/flightscope-a-game-changer-in-the-world-of-golf"
+      ],
+      "about_trust": [
+        "https://flightscope.com/pages/about",
+        "https://flightscope.com/pages/contact"
+      ],
+      "policy": [
+        "https://flightscope.com/policies/privacy-policy",
+        "https://flightscope.com/policies/shipping-policy"
+      ]
+    },
+    "sampled_counts": {
+      "homepage": 1,
+      "product": 4,
+      "collection": 2,
+      "comparison": 2,
+      "blog_index": 2,
+      "article": 6,
+      "about_trust": 2,
+      "policy": 2
+    },
+    "structured_data": {
+      "json_ld_types": [
+        "Article",
+        "CollectionPage",
+        "FAQPage",
+        "Product"
+      ],
+      "microdata_types": [
+        "http://schema.org/Organization",
+        "https://schema.org/VideoObject"
+      ],
+      "rdfa_types": []
+    }
+  },
+  "rendered_verification": {
+    "status": "success",
+    "message": "",
+    "provider": "browserless",
+    "pages": [
+      {
+        "page_type": "homepage",
+        "page_url": "https://flightscope.com/",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "Portable Golf Launch Monitors and Simulators - FlightScope",
+          "canonical": "https://flightscope.com/",
+          "meta_description": "FlightScope golf launch monitors and portable simulators lead the charge in golf ball flight tracker technology.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "FlightScope Golf US Store"
+            ],
+            "h2_count": 13,
+            "h3_count": 3
+          },
+          "structured_data": {
+            "json_ld_types": [],
+            "json_ld_items": [],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "product",
+        "page_url": "https://flightscope.com/products/mevo-gen2",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "Mevo Gen2 - Get FlightScope's Latest Launch Monitor",
+          "canonical": "https://flightscope.com/products/mevo-gen2",
+          "meta_description": "The all-new Mevo Gen2 delivers unbeatable features for the price point, such as enhanced accuracy indoors and outdoors.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "Mevo Gen2"
+            ],
+            "h2_count": 13,
+            "h3_count": 5
+          },
+          "structured_data": {
+            "json_ld_types": [
+              "FAQPage",
+              "Product"
+            ],
+            "json_ld_items": [
+              {
+                "types": [
+                  "Product"
+                ],
+                "name": "Mevo Gen2",
+                "headline": "",
+                "url": "https://flightscope.com/products/mevo-gen2",
+                "image": {
+                  "@type": "ImageObject",
+                  "url": "https://flightscope.com/cdn/shop/files/Mevo-Gen2-Launch-Monitor-side_1024x1024.jpg?v=1745859020",
+                  "image": "https://flightscope.com/cdn/shop/files/Mevo-Gen2-Launch-Monitor-side_1024x1024.jpg?v=1745859020",
+                  "name": "Mevo Gen2",
+                  "width": 1024,
+                  "height": 1024
+                },
+                "author": ""
+              },
+              {
+                "types": [
+                  "FAQPage"
+                ],
+                "name": "",
+                "headline": "",
+                "url": "",
+                "image": "",
+                "author": ""
+              }
+            ],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "product",
+        "page_url": "https://flightscope.com/products/mevo-plus",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "FlightScope Mevo+ Golf Launch Monitor",
+          "canonical": "https://flightscope.com/products/mevo-plus",
+          "meta_description": "Mevo+ is a launch monitor and simulator giving golfers the ultimate practice and play experience. Used indoor and outdoor by coaches, pros and amatures.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "Mevo+"
+            ],
+            "h2_count": 13,
+            "h3_count": 5
+          },
+          "structured_data": {
+            "json_ld_types": [
+              "FAQPage",
+              "Product"
+            ],
+            "json_ld_items": [
+              {
+                "types": [
+                  "Product"
+                ],
+                "name": "Mevo+",
+                "headline": "",
+                "url": "https://flightscope.com/products/mevo-plus",
+                "image": {
+                  "@type": "ImageObject",
+                  "url": "https://flightscope.com/cdn/shop/files/MevoPlus-Gray-Side-1_1024x1024.jpg?v=1759316726",
+                  "image": "https://flightscope.com/cdn/shop/files/MevoPlus-Gray-Side-1_1024x1024.jpg?v=1759316726",
+                  "name": "Mevo+",
+                  "width": 1024,
+                  "height": 1024
+                },
+                "author": ""
+              },
+              {
+                "types": [
+                  "FAQPage"
+                ],
+                "name": "",
+                "headline": "",
+                "url": "",
+                "image": "",
+                "author": ""
+              }
+            ],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "product",
+        "page_url": "https://flightscope.com/products/flightscope-x3c",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "FlightScope X3C: Pro Launch Monitor and Full Tracking Radar",
+          "canonical": "https://flightscope.com/products/flightscope-x3c",
+          "meta_description": "The FlightScope X3C, powered by our patented Fusion Tracking Technology, is the most accurate and comprehensive launch monitor on the market.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "FlightScope X3C"
+            ],
+            "h2_count": 12,
+            "h3_count": 11
+          },
+          "structured_data": {
+            "json_ld_types": [
+              "FAQPage",
+              "Product"
+            ],
+            "json_ld_items": [
+              {
+                "types": [
+                  "Product"
+                ],
+                "name": "FlightScope X3C",
+                "headline": "",
+                "url": "https://flightscope.com/products/flightscope-x3c",
+                "image": {
+                  "@type": "ImageObject",
+                  "url": "https://flightscope.com/cdn/shop/files/X3C-Launch-Monitor-side_1024x1024.jpg?v=1744903204",
+                  "image": "https://flightscope.com/cdn/shop/files/X3C-Launch-Monitor-side_1024x1024.jpg?v=1744903204",
+                  "name": "FlightScope X3C",
+                  "width": 1024,
+                  "height": 1024
+                },
+                "author": ""
+              },
+              {
+                "types": [
+                  "FAQPage"
+                ],
+                "name": "",
+                "headline": "",
+                "url": "",
+                "image": "",
+                "author": ""
+              }
+            ],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "product",
+        "page_url": "https://flightscope.com/products/mevo-gen2-with-thestack",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "Mevo Gen2 with TheStack",
+          "canonical": "https://flightscope.com/products/mevo-gen2-with-thestack",
+          "meta_description": "The&nbsp;Mevo Gen2 with TheStack System is the ultimate power-boosting bundle, built for the golfer wanting to gain club head speed and maximize distance.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "Mevo Gen2 with TheStack"
+            ],
+            "h2_count": 21,
+            "h3_count": 1
+          },
+          "structured_data": {
+            "json_ld_types": [
+              "Product"
+            ],
+            "json_ld_items": [
+              {
+                "types": [
+                  "Product"
+                ],
+                "name": "Mevo Gen2 with TheStack",
+                "headline": "",
+                "url": "https://flightscope.com/products/mevo-gen2-with-thestack",
+                "image": {
+                  "@type": "ImageObject",
+                  "url": "https://flightscope.com/cdn/shop/files/default_product_image_dd6462fa-5f6d-4db5-8b74-54f51ce022f9_1024x1024.jpg?v=1753359363",
+                  "image": "https://flightscope.com/cdn/shop/files/default_product_image_dd6462fa-5f6d-4db5-8b74-54f51ce022f9_1024x1024.jpg?v=1753359363",
+                  "name": "Mevo Gen2 with TheStack",
+                  "width": 1024,
+                  "height": 1024
+                },
+                "author": ""
+              }
+            ],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "collection",
+        "page_url": "https://flightscope.com/collections/all",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "FlightScope Mevo Products available in the USA",
+          "canonical": "https://flightscope.com/collections/all",
+          "meta_description": "An overview of all the golf launch monitors available on the FlightScope Store that can improve your golf game and keep you entertained.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "All"
+            ],
+            "h2_count": 5,
+            "h3_count": 4
+          },
+          "structured_data": {
+            "json_ld_types": [
+              "CollectionPage"
+            ],
+            "json_ld_items": [
+              {
+                "types": [
+                  "CollectionPage"
+                ],
+                "name": "All",
+                "headline": "",
+                "url": "",
+                "image": {
+                  "@type": "ImageObject",
+                  "height": 600,
+                  "url": "https://flightscope.com/cdn/shop/collections/1cc3891a-9343-402d-be23-633b90992d2d_600x.png?v=1754318875",
+                  "width": 600
+                },
+                "author": ""
+              }
+            ],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "collection",
+        "page_url": "https://flightscope.com/collections/sensors",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "FlightScope Golf Launch Monitors",
+          "canonical": "https://flightscope.com/collections/sensors",
+          "meta_description": "The FlightScope X3, Mevo and Mevo+ uses radar to provide golfers with accurate golf ball tracking, swing metrics, and more for game improvement.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "FlightScope Golf Launch Monitors"
+            ],
+            "h2_count": 5,
+            "h3_count": 3
+          },
+          "structured_data": {
+            "json_ld_types": [
+              "CollectionPage"
+            ],
+            "json_ld_items": [
+              {
+                "types": [
+                  "CollectionPage"
+                ],
+                "name": "FlightScope Golf Launch Monitors",
+                "headline": "",
+                "url": "",
+                "image": {
+                  "@type": "ImageObject",
+                  "height": 600,
+                  "url": "https://flightscope.com/cdn/shop/collections/2c5a58e1-0219-42c2-9e8a-9e451f0cbdae_600x.png?v=1754317118",
+                  "width": 600
+                },
+                "author": ""
+              }
+            ],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "comparison",
+        "page_url": "https://flightscope.com/blogs/news/flightscope-mevo-vs-trackman-4-review",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "FlightScope Mevo+ vs Trackman 4 review by Golfalot.com",
+          "canonical": "https://flightscope.com/blogs/news/flightscope-mevo-vs-trackman-4-review",
+          "meta_description": "In this video, Golfalot.com's Sophie Walker compares the measurements from a FlightScope Mevo+ to a Trackman 4 by setting them up side-by-side.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "FlightScope Mevo+ vs Trackman 4 review by Golfalot.com"
+            ],
+            "h2_count": 5,
+            "h3_count": 0
+          },
+          "structured_data": {
+            "json_ld_types": [
+              "Article"
+            ],
+            "json_ld_items": [
+              {
+                "types": [
+                  "Article"
+                ],
+                "name": "",
+                "headline": "FlightScope Mevo+ vs Trackman 4 review by Golfalot.com",
+                "url": "",
+                "image": [
+                  "https://flightscope.com/cdn/shop/articles/flightscope-vs-trackman_975x.jpg?v=1664867890"
+                ],
+                "author": "FlightScope Mevo LLC"
+              }
+            ],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "comparison",
+        "page_url": "https://flightscope.com/blogs/news/mevo-vs-skytrak-review-by-golfsimulatorvideos",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "Mevo+ vs SkyTrak review by Golfsimulatorvideos.com",
+          "canonical": "https://flightscope.com/blogs/news/mevo-vs-skytrak-review-by-golfsimulatorvideos",
+          "meta_description": "In this video, Golfsimulatorvideos.com compares the FlightScope Mevo+ to a SkyTrak. His in-depth review highlights the features of both launch monitors.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "Mevo+ vs SkyTrak review by Golfsimulatorvideos.com"
+            ],
+            "h2_count": 5,
+            "h3_count": 0
+          },
+          "structured_data": {
+            "json_ld_types": [
+              "Article"
+            ],
+            "json_ld_items": [
+              {
+                "types": [
+                  "Article"
+                ],
+                "name": "",
+                "headline": "Mevo+ vs SkyTrak review by Golfsimulatorvideos.com",
+                "url": "",
+                "image": [
+                  "https://flightscope.com/cdn/shop/articles/flightscope-mevo-plus-vs-skytrak_1136x.jpg?v=1664867902"
+                ],
+                "author": "Eric Moore"
+              }
+            ],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "blog_index",
+        "page_url": "https://flightscope.com/blogs/news",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "Golf Launch Monitor News from FlightScope",
+          "canonical": "https://flightscope.com/blogs/news",
+          "meta_description": "Improve your golf game with expert tips, news & insights from FlightScope, the leader in launch monitor technology.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "News"
+            ],
+            "h2_count": 5,
+            "h3_count": 0
+          },
+          "structured_data": {
+            "json_ld_types": [],
+            "json_ld_items": [],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "blog_index",
+        "page_url": "https://flightscope.com/blogs/blogs",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "Blogs",
+          "canonical": "https://flightscope.com/blogs/blogs",
+          "meta_description": "Unlock your golfing potential with FlightScope's expert blogs. Discover tips, news, and insights to elevate your game.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "Blogs"
+            ],
+            "h2_count": 5,
+            "h3_count": 0
+          },
+          "structured_data": {
+            "json_ld_types": [],
+            "json_ld_items": [],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "article",
+        "page_url": "https://flightscope.com/blogs/news/how-fast-should-you-swing-your-driver",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "How Fast should you Swing Your Driver?",
+          "canonical": "https://flightscope.com/blogs/news/how-fast-should-you-swing-your-driver",
+          "meta_description": "Unsure of your ideal driver swing speed? FlightScope and Me and My Golf help you find the sweet spot! Explore tips & data to maximize distance & control.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "How Fast should you Swing Your Driver?"
+            ],
+            "h2_count": 5,
+            "h3_count": 0
+          },
+          "structured_data": {
+            "json_ld_types": [
+              "Article"
+            ],
+            "json_ld_items": [
+              {
+                "types": [
+                  "Article"
+                ],
+                "name": "",
+                "headline": "How Fast should you Swing Your Driver?",
+                "url": "",
+                "image": [
+                  "https://flightscope.com/cdn/shop/articles/me_and_my_golf_155d770b-2090-4530-9159-4b4b082ea6e9_1024x.jpg?v=1664867911"
+                ],
+                "author": "FlightScope Mevo LLC"
+              }
+            ],
+            "microdata_types": [
+              "http://schema.org/Organization",
+              "https://schema.org/VideoObject"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "article",
+        "page_url": "https://flightscope.com/blogs/news/flightscope-launches-new-mevo-pro-package",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "FlightScope Launches New Mevo+ Pro Package",
+          "canonical": "https://flightscope.com/blogs/news/flightscope-launches-new-mevo-pro-package",
+          "meta_description": "The FlightScope Mevo+ Pro Package add-on provides 12 additional data parameters focused on club data, including the complete D-plane dataset.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "FlightScope Launches New Mevo+ Pro Package"
+            ],
+            "h2_count": 5,
+            "h3_count": 0
+          },
+          "structured_data": {
+            "json_ld_types": [
+              "Article"
+            ],
+            "json_ld_items": [
+              {
+                "types": [
+                  "Article"
+                ],
+                "name": "",
+                "headline": "FlightScope Launches New Mevo+ Pro Package",
+                "url": "",
+                "image": [
+                  "https://flightscope.com/cdn/shop/articles/MPP-sectionBG_1920x.jpg?v=1664867863"
+                ],
+                "author": "FlightScope Mevo LLC"
+              }
+            ],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "article",
+        "page_url": "https://flightscope.com/blogs/news/using-the-flightscope-mevo-for-simulation",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "Using the FlightScope Mevo+ for Simulation",
+          "canonical": "https://flightscope.com/blogs/news/using-the-flightscope-mevo-for-simulation",
+          "meta_description": "The FlightScope Mevo+ comes with 10 TruGolf E6 Connect golf courses and 17 practice ranges to level up your practice and simulation experience.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "Using the FlightScope Mevo+ for Simulation"
+            ],
+            "h2_count": 5,
+            "h3_count": 0
+          },
+          "structured_data": {
+            "json_ld_types": [
+              "Article"
+            ],
+            "json_ld_items": [
+              {
+                "types": [
+                  "Article"
+                ],
+                "name": "",
+                "headline": "Using the FlightScope Mevo+ for Simulation",
+                "url": "",
+                "image": [
+                  "https://flightscope.com/cdn/shop/articles/2_1024x.png?v=1668540230"
+                ],
+                "author": "FlightScope Mevo LLC"
+              }
+            ],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "article",
+        "page_url": "https://flightscope.com/blogs/news/flightscope-announces-mevo-trade-in-program",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "FlightScope Announces Mevo Trade-In Program",
+          "canonical": "https://flightscope.com/blogs/news/flightscope-announces-mevo-trade-in-program",
+          "meta_description": "FlightScope announced the Mevo Trade-in program, which presents an opportunity for Mevo customers to upgrade to the Mevo+ at a discounted price.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "FlightScope Announces Mevo Trade-In Program"
+            ],
+            "h2_count": 5,
+            "h3_count": 0
+          },
+          "structured_data": {
+            "json_ld_types": [
+              "Article"
+            ],
+            "json_ld_items": [
+              {
+                "types": [
+                  "Article"
+                ],
+                "name": "",
+                "headline": "FlightScope Announces Mevo Trade-In Program",
+                "url": "",
+                "image": [
+                  "https://flightscope.com/cdn/shop/articles/FLIGHTSCOPE-2-2022-5_1500x.png?v=1664867895"
+                ],
+                "author": "FlightScope Mevo LLC"
+              }
+            ],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "article",
+        "page_url": "https://flightscope.com/blogs/news/flightscope-mevo-2023-launch-monitor-review",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "Flightscope Mevo+ 2023 Launch Monitor Review",
+          "canonical": "https://flightscope.com/blogs/news/flightscope-mevo-2023-launch-monitor-review",
+          "meta_description": "The award-winning FlightScope Mevo+ launch monitor utilizes FlightScope's patented Fusion Tracking Technology to provide 20 data parameters out of the box",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "Flightscope Mevo+ 2023 Launch Monitor Review"
+            ],
+            "h2_count": 5,
+            "h3_count": 0
+          },
+          "structured_data": {
+            "json_ld_types": [
+              "Article"
+            ],
+            "json_ld_items": [
+              {
+                "types": [
+                  "Article"
+                ],
+                "name": "",
+                "headline": "Flightscope Mevo+ 2023 Launch Monitor Review",
+                "url": "",
+                "image": [
+                  "https://flightscope.com/cdn/shop/articles/Screenshot_2023-08-02_at_4.55.13_PM_1154x.png?v=1691498580"
+                ],
+                "author": "Mike Bailey"
+              }
+            ],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "article",
+        "page_url": "https://flightscope.com/blogs/news/flightscope-a-game-changer-in-the-world-of-golf",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "FlightScope: A Game-Changer in the World of Golf",
+          "canonical": "https://flightscope.com/blogs/news/flightscope-a-game-changer-in-the-world-of-golf",
+          "meta_description": "This article contains a video explaining the FlightScope family of launch monitors which you can use to shave some strokes off of your next round of golf.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "FlightScope: A Game-Changer in the World of Golf"
+            ],
+            "h2_count": 5,
+            "h3_count": 0
+          },
+          "structured_data": {
+            "json_ld_types": [
+              "Article"
+            ],
+            "json_ld_items": [
+              {
+                "types": [
+                  "Article"
+                ],
+                "name": "",
+                "headline": "FlightScope: A Game-Changer in the World of Golf",
+                "url": "",
+                "image": [
+                  "https://flightscope.com/cdn/shop/articles/flightscope-radars-grass-background_1353x.jpg?v=1689088879"
+                ],
+                "author": "Eric Moore"
+              }
+            ],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "about_trust",
+        "page_url": "https://flightscope.com/pages/about",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "About Us \u2013 FlightScope, 3D Ball Tracking Monitor Manufacturers",
+          "canonical": "https://flightscope.com/pages/about",
+          "meta_description": "An overview of FlightScope's history, awards won and what our tracking systems are used for.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "3D Doppler Ball Tracking Monitors, Golf Radars & Launch Monitors"
+            ],
+            "h2_count": 6,
+            "h3_count": 3
+          },
+          "structured_data": {
+            "json_ld_types": [],
+            "json_ld_items": [],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "about_trust",
+        "page_url": "https://flightscope.com/pages/contact",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "Contact FlightScope Customer Service or Support",
+          "canonical": "https://flightscope.com/pages/contact",
+          "meta_description": "Contact FlightScope customer service in the sales or support departments via email, phone or live chat.",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "Customer Care"
+            ],
+            "h2_count": 6,
+            "h3_count": 3
+          },
+          "structured_data": {
+            "json_ld_types": [],
+            "json_ld_items": [],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "policy",
+        "page_url": "https://flightscope.com/policies/privacy-policy",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "Privacy policy",
+          "canonical": "https://flightscope.com/policies/privacy-policy",
+          "meta_description": "",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "Privacy policy",
+              "FlightScope Privacy Policy"
+            ],
+            "h2_count": 4,
+            "h3_count": 0
+          },
+          "structured_data": {
+            "json_ld_types": [],
+            "json_ld_items": [],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      },
+      {
+        "page_type": "policy",
+        "page_url": "https://flightscope.com/policies/shipping-policy",
+        "confidence": "Confirmed",
+        "verification": {
+          "title": "Shipping policy",
+          "canonical": "https://flightscope.com/policies/shipping-policy",
+          "meta_description": "",
+          "viewport": "width=device-width,initial-scale=1",
+          "headings": {
+            "h1": [
+              "Shipping policy"
+            ],
+            "h2_count": 4,
+            "h3_count": 0
+          },
+          "structured_data": {
+            "json_ld_types": [],
+            "json_ld_items": [],
+            "microdata_types": [
+              "http://schema.org/Organization"
+            ],
+            "rdfa_types": []
+          },
+          "evidence_source": "browser_rendered_dom",
+          "provider": "browserless"
+        }
+      }
+    ]
+  }
+}

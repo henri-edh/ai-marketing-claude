@@ -123,6 +123,9 @@ ai-marketing-claude/
 │
 ├── scripts/                            # Python utility scripts
 │   ├── analyze_page.py                 # Webpage marketing analysis (improved parser)
+│   ├── collect_seo_evidence.py         # Representative page-set collector for SEO audits
+│   ├── verify_rendered_seo.py          # Browser-rendered verification for critical SEO findings
+│   ├── generate_seo_audit_report.py    # Deterministic SEO_AUDIT.md generator from evidence artifacts
 │   ├── competitor_scanner.py           # Competitor website scanner (SSL-verified)
 │   ├── social_calendar.py              # Social content calendar generator (validated input)
 │   └── generate_pdf_report.py          # PDF report generator (data-driven weights)
@@ -206,12 +209,16 @@ Skills automatically detect and use output from other skills:
 | `COMPETITOR-REPORT.md` | copy, ads, funnel, social, report, report-pdf |
 | `BRAND-VOICE.md` | copy, social, emails, report, report-pdf |
 | `COPY-SUGGESTIONS.md` | ads, funnel, emails, social, competitors |
-| `SEO-AUDIT.md` | report, report-pdf, proposal |
+| `SEO_AUDIT.md` | report, report-pdf, proposal |
 | `FUNNEL-ANALYSIS.md` | ads, emails, competitors, report |
 | `EMAIL-SEQUENCES.md` | funnel, social, report |
 | `AD-CAMPAIGNS.md` | report, report-pdf |
 | `SOCIAL-CALENDAR.md` | ads, report, report-pdf |
 | `LANDING-CRO.md` | report, report-pdf, proposal |
+
+---
+
+SEO audits are generated as standalone fresh runs. Other skills may read `SEO_AUDIT.md` as an output artifact, but `/market seo` should not consume prior audit markdown as an input unless the user explicitly asks for a comparison.
 
 ---
 
@@ -240,12 +247,21 @@ This project uses **UV** for fast, reliable Python package management:
 
 - Virtual environment: `~/.claude/skills/market/.venv`
 - Python helper script: `~/.claude/skills/market/python-env.sh`
-- All Python scripts run through the UV-managed environment
+- All Python scripts should run through the UV-managed environment
 
 To run Python scripts manually:
 
 ```bash
-~/.claude/skills/market/python-env.sh scripts/analyze_page.py <url>
+uv run python scripts/analyze_page.py <url>
+uv run python scripts/collect_seo_evidence.py <url> seo_evidence.json --profile deep
+export BROWSERLESS_TOKEN=your_token_here
+uv run python scripts/verify_rendered_seo.py seo_evidence.json rendered_verification.json
+```
+
+Local fallback if you explicitly want the bundled Playwright CLI instead:
+
+```bash
+uv run python scripts/verify_rendered_seo.py seo_evidence.json rendered_verification.json --provider local-playwright-cli
 ```
 
 ---

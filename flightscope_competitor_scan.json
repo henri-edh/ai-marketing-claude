@@ -1,0 +1,6 @@
+{
+  "url": "https://www.flightscope.com",
+  "domain": "flightscope.com",
+  "status": "error",
+  "message": "Could not parse page: 'NoneType' object has no attribute 'lower'"
+}
