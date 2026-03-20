@@ -52,10 +52,25 @@ cd ai-marketing-claude
 
 - **UV** (Python package manager) — automatically installed if not present
 - **Python 3.13** virtual environment — managed by UV
-- **All 15 marketing skills** — installed to `~/.claude/skills/market/`
+- **All 15 marketing skills** — installed under `~/.claude/skills/`
 - **5 parallel analysis agents** — installed to `~/.claude/agents/`
-- **4 Python utility scripts** — for automated analysis
+- **7 Python utility scripts** — including the full SEO evidence and rendered-verification pipeline
 - **6 marketing templates** — email sequences, proposals, calendars
+- **Shared accuracy guardrails** — installed for analytical skills and agents
+
+### Optional: Browserless for Rendered SEO Verification
+
+`/market seo` now defaults to Browserless-backed rendered verification when you run the verification script directly. Add a token to your shell or `.env`:
+
+```bash
+export BROWSERLESS_TOKEN=your_token_here
+```
+
+If Browserless is unavailable, you can fall back to the bundled Playwright wrapper:
+
+```bash
+uv run python scripts/verify_rendered_seo.py seo_evidence.json rendered_verification.json --provider local-playwright-cli
+```
 
 ### Optional: PDF Report Support
 

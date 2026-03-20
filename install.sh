@@ -15,7 +15,7 @@ NC='\033[0m'
 echo ""
 echo -e "${CYAN}╔══════════════════════════════════════════════╗${NC}"
 echo -e "${CYAN}║   AI Marketing Suite — Claude Code Skills    ║${NC}"
-echo -e "${CYAN}║   15 Skills · 5 Agents · 4 Scripts · PDF     ║${NC}"
+echo -e "${CYAN}║   15 Skills · 5 Agents · 7 Scripts · PDF     ║${NC}"
 echo -e "${CYAN}╚══════════════════════════════════════════════╝${NC}"
 echo ""
 
@@ -102,6 +102,15 @@ for skill in "${SKILLS[@]}"; do
     fi
 done
 
+# Install shared guardrails used by multiple skills and agents
+echo -e "\n${BLUE}Installing shared skill resources...${NC}"
+if [ -f "$SCRIPT_DIR/skills/ACCURACY-GUARDRAILS.md" ]; then
+    cp "$SCRIPT_DIR/skills/ACCURACY-GUARDRAILS.md" "$SKILLS_DIR/ACCURACY-GUARDRAILS.md"
+    echo -e "  ${GREEN}✓${NC} ACCURACY-GUARDRAILS.md"
+else
+    echo -e "  ${YELLOW}⚠${NC} ACCURACY-GUARDRAILS.md (not found, skipping)"
+fi
+
 # Install agents
 echo -e "\n${BLUE}Installing agents...${NC}"
 AGENTS=(
@@ -130,9 +139,12 @@ mkdir -p "$SCRIPTS_TARGET"
 
 SCRIPT_FILES=(
     "analyze_page.py"
+    "collect_seo_evidence.py"
     "competitor_scanner.py"
-    "social_calendar.py"
     "generate_pdf_report.py"
+    "generate_seo_audit_report.py"
+    "social_calendar.py"
+    "verify_rendered_seo.py"
 )
 
 SCRIPT_COUNT=0
@@ -284,6 +296,11 @@ echo "  /market report <url>       Marketing report (Markdown)"
 echo "  /market report-pdf <url>   Marketing report (PDF)"
 echo "  /market seo <url>          SEO content audit"
 echo "  /market brand <url>        Brand voice analysis"
+echo ""
+echo -e "${CYAN}SEO Rendered Verification:${NC}"
+echo "  Default provider: Browserless"
+echo "  Set BROWSERLESS_TOKEN before running scripts/verify_rendered_seo.py directly"
+echo "  Use --provider local-playwright-cli as a local fallback"
 echo ""
 echo -e "  ${YELLOW}Start a new Claude Code session to use the skills.${NC}"
 echo ""
